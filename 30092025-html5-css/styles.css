@@ -1,0 +1,54 @@
+/* Estilos básicos*/
+
+/* Poner fuente personalizada en linea */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&display=swap');
+
+
+* {
+    margin: 1;
+    padding: 1;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Bitcount Single Ink", system-ui;
+    /* font-family: 'gontserrat', sans-serif; */
+    line-height: 1.6;
+    background-color: black;
+    color: #570f9a;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+header{
+    padding: 2%;
+    background-color: #1d1b1b;
+    margin-bottom: 1%;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+nav a{
+    color: #570f9a;
+    text-decoration: none;
+}
+section{
+    margin-bottom: 1%;
+    padding: 1rem;
+    /*border: 1px solid #570f9a;  /* Borde sólido*/
+    border: 1px dotted #570f9a; /* Borde punteado */
+    border-radius: 5px;
+}
+
+/* @font-face {
+  font-family: 'gontserrat';
+  src: url('Gontserrat.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;} */
+
+/* h3 {
+    color:#3801c4;
+} */
