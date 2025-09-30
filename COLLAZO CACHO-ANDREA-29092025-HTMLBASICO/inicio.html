@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mi primer documento HTML5">
+    <title>Mi primer documento</title>
+    <!-- Estilos de la página: styles.css -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--Cabecera: suele contener el logo, título, menú de navegación y otros elementos de cabecera -->
+    <header>
+        <h1 class="encabezado"> Mi primer documento </h1>
+        <nav>
+            <ul>
+                <li> <a href="#inicio"> Inicio </a></li>
+                <li> <a href="#sobre"> Sobre mi </a></li>
+                <li> <a href="#contacto"> Contacto </a></li>
+                <li> <a href="https://google.es"> Página de google </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Contenido principal de la página-->
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a mi página web</h2>
+            <article>
+                <h3>Mi primer artículo</h3>
+                <p>
+                    Esto es un artículo básico: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
+                    doloremque, consequatur voluptate, odit quisquam totam ipsa, earum in facere eveniet veniam dicta
+                    dolores eius? Reprehenderit rerum illum eaque eos ratione.
+                </p>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel itaque esse impedit fuga molestiae
+                    consequatur quis quos perferendis, quod rem ipsam. Eveniet facere quod blanditiis officia esse
+                    accusamus impedit voluptates?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, id! Similique esse eum sed illo
+                    facilis officia, corrupti officiis quos veniam, maxime enim perspiciatis quisquam voluptatibus
+                    reprehenderit ab quas cumque.
+                </p>
+            </article>
+        </section>
+        <section id="sobre">
+            <h2>Sobre mi</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus animi ipsum fuga, architecto
+                illo corporis veritatis quisquam voluptate consectetur iste facere. Repellat culpa mollitia sapiente
+                ipsa corrupti qui itaque praesentium!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam pariatur beatae temporibus
+                dignissimos impedit enim debitis quia voluptatibus? Facilis rerum neque magni perspiciatis excepturi rem
+                quam voluptatum asperiores pariatur.
+            </p>
+        </section>
+        
+        <section id="contacto">
+            <h2> Formulario de Contacto </h2>
+            <!-- Formulario de contacto -->
+            <form action="POST">
+                <fieldset>
+                    <legend>Contacto</legend>
+                <div>
+                    <label for="nombre">Nombre*</label>
+                    <input type="text" name="nombre" id="nombre" size="50" required placeholder="Pepito González García">
+                </div>
+                <div>
+                    <label for="email">Email*</label>
+                    <input type="email" name="email" id="email" size="45" required placeholder="Pepito@email.com">
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje:*</label>
+                    <textarea name="mensaje" id="mensaje" rows="10" cols="120" required > Mensaje </textarea>
+                </div>
+                <button type="submit"> Enviar mensaje </button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+    <!-- Pie de página -->
+    <footer>
+        <p> &copy; 2025 - Todos los derechos reservados </p>
+    </footer>
+</body>
+
+</html>

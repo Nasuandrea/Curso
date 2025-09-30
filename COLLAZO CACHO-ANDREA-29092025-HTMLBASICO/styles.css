@@ -1,0 +1,8 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: purple;
+    background-color: rgb(0, 0, 0);
+}
+.encabezado {
+    font-style: italic;
+}
