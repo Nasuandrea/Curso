@@ -1,0 +1,93 @@
+<!-- esquema conceptual-->
+ <!DOCTYPE html><!--DECLARACION DE TIPO DE DOCUMENTO-->
+ <html lang="es"><!--elemnto raiz + idioma-->
+ <head><!--Metadatos (no visible) estilos, scripts -->
+    <meta charset="UTF-8"> <!--codificacion de caracteres soporta  ñ acentos carac especiales-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ajista la pagina al dispositivo-->
+    <meta name="description" content="Mi primer documento html5 válido">
+    <!--descripcion de la pagina, resultados SEO -->
+    <title>Mi primer Documento html</title>
+    <link rel="stylesheet" href="estilos.css"><!--vinculacion a los estilos del documento-->
+ </head>
+ <body><!--cuerpo del documento-->
+<header><!--logotipo, navegacion, buscador, iconos-->
+    <h1>Mi primer Documento web</h1>
+    <!--<h2>encabezado 2</h2>
+    <h3>encabezado 3</h3>
+    <h4>encabezado 4</h4>
+    <h5>encabezado 5</h5>
+    <h6>encabezado 6</h6>-->
+    <nav><!--navegacion principal -->
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre Mi</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+    </nav>
+</header>
+<main><!--contenido principal-->
+    <section id="inicio">
+        <h2>Bienvenido a mi sitio web</h2>
+        <article>
+            <h3>Mi primer articulo</h3>
+            <p> Este texto <strong>tiene una parte destacada</strong> y otra normal</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                <br>Nulla sit inventore quod corporis nemo excepturi omnis, reiciendis facilis ratione,
+                <hr> perferendis in atque, quo totam hic earum ea ipsa nesciunt eligendi.</p>
+        </article>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre mí</h2>
+        <div>
+            <img src="imagenes/imagen.png" alt="foto e perfil" width="150" height="150"><!--medidas por defecto son pixeles-->
+            <p>Descripcion breve ....</p>
+        </div>
+        <h3>Mis habilidades:</h3>
+        <ul>
+            <li>html5 semantico</li>
+            <li>estructura de documentos</li>
+            <li>accesibilidad web</li>
+        </ul>
+        <h3>Proyecto realizados</h3>
+        <ol>
+            <li>documento html valido</li>
+            <li>Estructura semantica</li>
+            <li>Enlaces y multimedia</li>
+        </ol>
+    </section>
+    <!--    FORMULARIO DE CONTACTO-->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <div>
+                    <label for="nombre">Nombre (*)</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                </div>
+                <div>
+                    <label for="emial">Email (*)</label>
+                    <input type="emial" name="email" id="email">
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="mensaje" id="mensaje" required rows="4"></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+
+
+            </form>
+
+        </section>
+
+</main>
+<footer><!--informacion copy, fecha, links varios, imagen-->
+<p>&copy; 2025 - Todos los derechos reservados</p>
+</footer>
+
+
+
+    
+ </body>
+ </html>

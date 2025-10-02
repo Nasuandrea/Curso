@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" vocab="http://schema.org/" typeof="Blog">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog técnico sobre desarrollo web, HTML5 semántico y mejores prácticas">
+    <meta name="keywords" content="HTML5, CSS, desarrollo web, semántica, SEO">
+    <meta name="author" content="Tu Nombre">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog Técnico - Desarrollo Web">
+    <meta property="og:description" content="Aprende desarrollo web con artículos técnicos y ejemplos prácticos">
+    <meta property="og:type" content="blog">
+    <meta property="og:locale" content="es_ES">
+
+    <title>Blog Técnico | Desarrollo Web Moderno</title>
+
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    
+    
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <a href="#" class="logo">DevBlog</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#articulos">Artículos</a></li>
+                <li><a href="#tutoriales">Tutoriales</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main role="main">
+        <section class="featured-articles">
+            <h1 class="section-title">Artículos Destacados</h1>
+            
+            <article typeof="BlogPosting">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">HTML5</span>
+                        <time datetime="2025-09-28">28 de septiembre, 2025</time>
+                        <span>Por Ana García</span>
+                    </div>
+                    <h2 class="article-title" property="headline">Introducción al HTML Semántico</h2>
+                    <p class="article-excerpt" property="description">
+                        Descubre cómo utilizar las etiquetas semánticas de HTML5 para crear sitios web más accesibles, 
+                        mejor estructurados y optimizados para motores de búsqueda. Aprende las mejores prácticas y 
+                        ejemplos reales.
+                    </p>
+                    <a href="#" class="read-more">Leer más &#8594;</a>
+                </div>
+            </article>
+
+            <article typeof="BlogPosting">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">CSS</span>
+                        <time datetime="2025-09-25">25 de septiembre, 2025</time>
+                        <span>Por Carlos Ruiz</span>
+                    </div>
+                    <h2 class="article-title" property="headline">Grid y Flexbox: ¿Cuándo usar cada uno?</h2>
+                    <p class="article-excerpt" property="description">
+                        Una guía completa para entender las diferencias entre CSS Grid y Flexbox. Aprende cuándo 
+                        utilizar cada sistema de layout y cómo combinarlos para crear diseños modernos y responsivos.
+                    </p>
+                    <a href="#" class="read-more">Leer más &#8594;</a>
+                </div>
+            </article>
+
+            <article typeof="BlogPosting">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">JavaScript</span>
+                        <time datetime="2025-09-22">22 de septiembre, 2025</time>
+                        <span>Por María López</span>
+                    </div>
+                    <h2 class="article-title" property="headline">Optimización de Performance en JavaScript</h2>
+                    <p class="article-excerpt" property="description">
+                        Técnicas avanzadas para mejorar el rendimiento de tus aplicaciones JavaScript. Desde lazy loading 
+                        hasta web workers, descubre cómo hacer tu código más rápido y eficiente.
+                    </p>
+                    <a href="#" class="read-more">Leer más &#8594;</a>
+                </div>
+            </article>
+        </section>
+        
+        <aside role="complementary" aria-label="Barra lateral">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Categorías</h3>
+                <ul class="widget-list">
+                    <li><a href="#" target="">HTML5 (12)</a></li>
+                    <li><a href="#">CSS3 (18)</a></li>
+                    <li><a href="#">JavaScript (24)</a></li>
+                    <li><a href="#">Accesibilidad (8)</a></li>
+                    <li><a href="#">SEO (6)</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Artículos Populares</h3>
+                <ul class="widget-list">
+                    <li><a href="#">Guía completa de Flexbox</a></li>
+                    <li><a href="#">Variables CSS: Usos prácticos</a></li>
+                    <li><a href="#">Async/Await explicado</a></li>
+                    <li><a href="#">Responsive Design 2025</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Sobre el Blog</h3>
+                <p>Blog dedicado al desarrollo web moderno, con tutoriales prácticos y artículos técnicos sobre HTML, CSS, JavaScript y mejores prácticas.</p>
+            </div>
+        </aside>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DevBlog</h3>
+                <p>Tu fuente de conocimiento sobre desarrollo web moderno. Aprende, practica y mejora tus habilidades.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Contacto</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <a href="#">Documentación</a>
+                <a href="#">Tutoriales</a>
+                <a href="#">Ejemplos de Código</a>
+                <a href="#">Newsletter</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 DevBlog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

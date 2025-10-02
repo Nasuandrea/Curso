@@ -1,0 +1,230 @@
+/* ================================================= */
+/* 1. VARIABLES (Custom Properties)                  */
+/* ================================================= */
+
+:root {
+    /* Colores */
+    --color-primary: #007BFF; /* Azul principal */
+    --color-secondary: #6C757D; /* Gris secundario */
+    --color-text: #343A40; /* Texto oscuro */
+    --color-text-light: #F8F9FA; /* Texto claro */
+    --color-background: #FFFFFF; /* Fondo principal */
+    --color-light-bg: #F8F9FA; /* Fondo de sección (gris claro) */
+    --color-highlight: #FFC107; /* Amarillo para destacar */
+
+    /* Espaciado */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+
+    /* Tipografía */
+    --font-size-base: 1rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.5rem;
+}
+
+/* ================================================= */
+/* 2. ESTILOS BASE (Base Styles)                     */
+/* ================================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; /* Base para rem */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color:var(--color-secondary);
+    text-decoration: none;
+}
+
+
+/* Contenedor central (Grid para layout de 1200px) */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Títulos de sección */
+.section-title {
+    font-size: var(--font-size-h2);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--color-primary);
+}
+
+/* ================================================= */
+/* 3. HERO SECTION                                   */
+/* ================================================= */
+
+.hero {
+    background-color: var(--color-light-bg);
+    padding: var(--space-xl) 0;
+    min-height: 80vh; /* Para que ocupe una buena parte de la pantalla */
+    display: flex; /* Para centrar el contenido verticalmente */
+    align-items: center;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* Más grande para el título principal */
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    color: var(--color-primary);
+    border-bottom: 4px solid var(--color-highlight); /* Un sutil subrayado */
+    padding-bottom: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Foto de perfil redonda */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+
+/* Botones */
+.hero-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.btn {
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+/* ================================================= */
+/* 4. SKILLS GRID                                    */
+/* ================================================= */
+
+.skills {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-background);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.skill-card {
+    background-color: var(--color-light-bg);
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    padding: var(--space-md);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.skill-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-highlight);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-card ul li {
+    padding: var(--space-xs) 0;
+    border-bottom: 1px dotted #CED4DA;
+    color: var(--color-text);
+}
+
+.skill-card ul li:last-child {
+    border-bottom: none;
+}
