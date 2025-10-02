@@ -1,0 +1,150 @@
+/*Estilos creados por Andrea C*/
+/*01-10-2025*/
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+/* 1. Variables (Custom properties)*/
+:root {
+    /*Colores*/
+    --color-prymary: #017d88;
+    /*Gris oscuro principal*/
+    --color-secondary: #28bbc6;
+    /*Purpura Secundario*/
+    --color-text-light: #195d5c;
+    /*Texto oscuro*/
+    --color-text: #35aec1;
+    /*Texto claro*/
+    --color-background: #131313;
+    /*Fondo principal*/
+    --color-light-bg: #3a3a3a;
+    /*fondo de sección*/
+    --color-hihglight: #ff0697;
+    /*rosa para destacar*/
+
+    /*Tipografía*/
+    --font-size-base: 1rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.5rem;
+
+    /*Espacios*/
+    --space-xs: 0.5rem;
+    --space-ms: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+}
+
+/* 2. Estilos Base (Base Styles) */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; /* Base rem */
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: "Shadows Into Light", cursive;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* Títulos de cada sección */
+
+.section-title {
+    font-size: var(--font-size-h2);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--color-prymary)
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* 3. Hero*/
+
+.hero{
+    background-color: var(--color-light-bg);
+    padding: var(--space-xl) 0;
+    min-height: 8vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero .container{
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.hero-content{
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-tittle{
+    font-size: 3.5rem;
+    margin-bottom: var(--space-ms);
+    line-height: 1.2;
+}
+
+/* Barra navegación */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu{
+    color:#017d88;
+    display: flex;
+    justify-content: center;
+    gap: 6.5rem;   
+    list-style: none;
+    padding-left: 6.5rem;
+    
+}
+.nav-menu li :hover{
+    color:var(--color-hihglight);
+}
+
+a {
+    text-decoration: none;
+}
+.hero-action :hover{
+    color:var(--color-hihglight);
+}
+
+span {
+    color:#ff0697;
+}
+
+button{
+    border-radius: 5px;
+    padding: 1rem;
+}
+a:active {
+          color:var(--color-secondary); /* Nuevo color cuando se pulsa el enlace */
+          background-color: var(--color-background); /* También puedes cambiar el fondo */
+        }
+
+#btn-projects {
+    background-color: var(--color-background);
+    color: var(--color-prymary);
+}
+
