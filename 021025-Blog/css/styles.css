@@ -1,9 +1,9 @@
 /* VARIABLES GLOBALES */
 
 /* Selector universal "*": aplica a todos los elementos del DOM*/
-*{
+* {
     /*Elimina márgenes predeterminados del navegador*/
-    margin:0;
+    margin: 0;
     /*Elimina relleno predeterminado del navegador*/
     padding: 0;
     /*Incluye padding y border en el ancho/alto total del elemento*/
@@ -12,39 +12,171 @@
 
 /* :root es el selector de mas alto nivel (equivalente a <html>)
     Se usa para declarar variables CSS globales */
-    :root{
-        /*Colores principales del sitio*/
-        --color-primary: #2563eb;
-        --color-secondary: #1e40af;
-        --color-accent: #f59e0b;
-        --color-text:#1f2937;
-        --color-text-light:#6b7280;
-        --color-bg:#ffffff;
-        --color-bg-light:#f9fafb;
-        --color-border:#e5e7eb;
-        
-        /*Stack de funtes: prioriza fuentes del sistema para mejor rendimiento */
-        --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-        --font-body: Verdana, sans-serif;
+:root {
+    /*Colores principales del sitio*/
+    --color-primary: #2563eb;
+    --color-secondary: #1e40af;
+    --color-accent: #f59e0b;
+    --color-text: #1f2937;
+    --color-text-light: #6b7280;
+    --color-bg: #ffffff;
+    --color-bg-light: #f9fafb;
+    --color-border: #e5e7eb;
 
-        /* Sombras predefinidas para profundidad visual */
-        --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05);
-        --shadow-md: 0 5px 6px -1px rgba(0,0,0,.1);
-        --shadow-lg: 0 1px 2px 0 rgba(0,0,0,.1);
-    }
+    /*Stack de funtes: prioriza fuentes del sistema para mejor rendimiento */
+    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font-body: Verdana, sans-serif;
 
-    body{
-        font-family: var(--font-body);
-        line-height: 1.6; /*Altura de la línea para mejor legibilidad (160% del tamaño de la fuente)*/
-        color: var(--color-text);
-        background-color: var(--color-bg);
-    }
+    /* Sombras predefinidas para profundidad visual */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    --shadow-md: 0 5px 6px -1px rgba(0, 0, 0, .1);
+    --shadow-lg: 0 1px 2px 0 rgba(0, 0, 0, .1);
 
-    header{
-        background-color: var(--color-bg);
-        box-shadow: var(--shadow-md);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border:  solid var(--color-border)  5px;
-    }
+    /*transiciones*/
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: var(--font-body);
+    /*Altura de la línea para mejor legibilidad (160% del tamaño de la fuente)*/
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+header {
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border: solid var(--color-border) 1px;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Efecto subrayado en los links del nav*/
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* .nav-links a:visited{
+    color: #45008b;
+} */
+main {
+    max-width: 1200;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    /* Activa css GRID para layout en columnas*/
+    display: grid;
+    /*columna1 flexible 1fr, columna 2 fija 300px*/
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+/* Seccion de articulos*/
+.featured-articles{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title{
+font-size: 2rem;
+margin-bottom: 1rem;
+color: var(--color-text);
+}
+
+article{
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+
+}
+
+article:hover{
+    transform: translateY(-14px);
+    box-shadow: var(--shadow-lg);
+}
+
+.article-image{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-text-light));
+}
+
+.article-content {
+padding: 1.5rem;}
+
+aside {
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-lg);
+}
+
+footer{
+    
+    background-color: var(--color-text);
+    color: var(--color-bg-light);
+
+}
+.footer-content {  
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.footer-section a{
+    display: block;
+}
+
+.footer-bottom{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
