@@ -1,0 +1,145 @@
+:root{
+--color-primary: #2563eb;
+--color-accent-bg: rgb(255, 221, 3);
+--color-accent-text: #39426a;
+--color-texto: #333;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto); 
+    /* Para que en el horizontal no se corte el texto x ej.*/
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.conversion-header{
+    background: rgba(255, 255, 255, 0.638);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.conversion-header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.logo{
+    /* font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary); */
+    width: auto;
+    height: 50px;
+}
+
+.logo-movil{
+    display: none;
+}
+
+.hero{
+    background: linear-gradient(135deg, royalblue 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title{
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title .accent{
+    color: var(--color-accent-bg);
+}
+
+.hero-benefits {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0
+}
+
+.benefit-item {
+    display: flex;
+    /* aling-items es en vertical*/
+    align-items: center;
+    gap: 0.5rem;
+    /* grosor de la fuente*/
+    font-weight: 500;
+}
+
+.cta-button {
+    /* botones que solo puede tener contenido arriba y abajo, con espacio en laterales */
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* text-aling es en el centro*/
+    text-align: center;
+}
+
+.cta-primary {
+    background: var(--color-accent-bg);
+    color: var(--color-accent-text);
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(222, 239, 123, 0.403);
+}
+
+.cta-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+nav {
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: royalblue;
+    text-decoration: none;
+    position: relative;
+}
+
+@media (max-width: 650px){
+    .logo{
+        display: none;
+    }
+
+    .logo-movil{
+    display: flex;
+    width: auto;
+    height: 25px;
+    }
+
+    nav{
+        display: none;
+    }
+}
