@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+
+        /*Estilos de la clase formulario: tamaño, margenes y tipo de fuente*/
+        .formulario {
+            width: 500px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+        /*estilos de todos los elementos div*/
+        div {
+            margin-bottom: 10px;
+        }
+        /*Estilos de la clase boton*/
+        .boton {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        /* Cambio color de fondo cuando se pasa ratón por encima*/
+        .boton:hover {
+            background-color: darkblue
+        }
+        /*Responsividad para pantallas menores de 768px*/
+        @media (max-width: 768px) {
+            .formulario {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formulario">
+        <h2>Contacto</h2>
+        <form role="formulario" aria-label="Formulario de contacto">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required role="campo nombre" aria-label="Campo de nombre">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required role="campo email" aria-label="Campo de email">
+            </div>
+
+            <button class="boton" type="submit"> Enviar </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

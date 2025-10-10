@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <style>
+        /*Estilos de la clase producto: tamaño, bordes, sombra y padding*/
+        .producto {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /*Estilos de la clase boton-comprar*/
+        .btn-comprar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid #0064cf;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /*Responsividad: para pantallas menores de 768px se ajusta el tamaño y padding de la clase producto*/
+        @media (max-width: 768px) {
+            .producto {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="producto">
+        <img src="producto.jpg" alt="Zapatos deportivos">
+        <h2> Zapatos Running Pro </h2>
+        <p>Zapatos ideales para running y entrenamiento</p>
+        <span class="precio"> $89.99 </span>
+        <button class="btn-comprar"> Añadir carrito</button>
+    </div>
+</body>
+
+</html>
