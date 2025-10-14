@@ -49,10 +49,33 @@ console.log("Año de Nacimiento:", anhoNacimiento);
 console.log("Ciudad Actual:", ciudadActual);
 
 // Crea un programa que muestre la edad, sexo, nombre, asignatura, dni
+
+//Declaración de variables
+let separacion= "---------------------------------------------------";
+let saltoLinea= "\n";
 let edad = 37;
 let sexo = "Femenino";
 let nombreAlumno = "Andrea";
 let asignatura = "JavaScript";
 let dni = "12345678A";
 
-console.log("Edad:", edad , "Sexo:", sexo, "Nombre:", nombreAlumno, "Asignatura:", asignatura, "DNI:", dni);
+// Mostrar en consola los datos personales, separando las variables del texto por comas
+console.log(separacion,saltoLinea,
+    "Datos Personales",saltoLinea,
+    "edad:", edad,saltoLinea,
+    "Sexo:", sexo,saltoLinea,
+    "Nombre:", nombreAlumno,saltoLinea,
+    "Asignatura:", asignatura,saltoLinea,
+    "DNI:", dni);
+
+// Otra forma de mostrar los datos personales: usando template strings (plantillas de texto)
+// Las template strings se crean usando backticks (`) en lugar de comillas simples o dobles
+// Permiten insertar variables directamente en el texto usando ${nombreVariable}
+console.log(`${separacion} ${saltoLinea}
+    Datos Personales${saltoLinea} 
+    edad: ${edad} ${saltoLinea}
+    Sexo: ${sexo} ${saltoLinea}
+    Nombre: ${nombreAlumno} ${saltoLinea}
+    Asignatura: ${asignatura} ${saltoLinea}
+    DNI: ${dni}`);
+// Esta forma es más legible y fácil de mantener cuando hay muchas variables a mostrar
