@@ -16,5 +16,6 @@ precioFinal = (precioOriginal - descuento * 1).toFixed(2); // Calculo el precio 
 
 //Salida por pantalla
 console.log(`Precio original: ${precioOriginal}€`);
-console.log(`Descuento del: ${porcentajeDescuento}% = ${descuento}€`);
+console.log(`Descuento del: ${porcentajeDescuento}%`);
+console.log(`Ahorras ${descuento}€`);
 console.log(`Precio final con descuento: ${precioFinal}`);
