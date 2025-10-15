@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividir gastos</title>
+</head>
+
+<body>
+
+    <h2>Formulario</h2>
+
+    <form id="formulario">
+        <label for="totalGasto">Total gasto</label>
+        <!--step es para poner el minimo en numero decimales-->
+        <input type="number" id="totalGasto" name="totalGasto" step="0.01" value="1225.50" required>
+        <br> <br>
+        <label for="numeroAmigos">Número de personas</label>
+        <!--min es para poner un minimo en numero entero-->
+        <input type="number" id="numeroAmigos" min="1" value="5">
+
+        <button type="submit"> Calcular </button>
+    </form>
+
+    <h3>Resultado</h3>
+
+    <div id="resultado">
+
+    </div>
+
+    <script>
+        /*Manejar y agregar objetos dentro del html (DOM)
+               Eventos - addEventListener - para escuchar eventos - la estructura es addEventListener('evento', function) 
+               submit - es el evento que se dispara al enviar un formulario
+               function(e) - e es el evento que se dispara,en este caso el submit
+               preventDefault() - para evitar que se recargue la pagina al enviar el formulario*/
+        document.getElementById('formulario')
+            .addEventListener('submit', function (e) {
+                e.preventDefault()
+
+                /* Obtener los valores del formulario
+                 getElementById - para obtener el elemento por su id, el id del elemento va entre comillas dentro del parentesis
+                 getElementById('totalGasto') - para obtener el elemento con id totalGasto
+                 .value - para obtener el valor del elemento*/
+                let totalGasto = parseFloat(document.getElementById('totalGasto').value);
+                let numeroAmigos = parseInt(document.getElementById('numeroAmigos').value);
+
+                //Calculos
+                let pagoIVA = totalGasto * 0.21;
+                let totalConIVA = totalGasto + pagoIVA;
+                let pagoPorAmigo = totalConIVA / numeroAmigos;
+
+                //Mostrar el resultado en el html: 
+                //Creamos una variable resultadoHTML para guardar el resultado en formato HTML: todo va dentro de ``. 
+                // .toFixed(2) - para limitar a dos decimales
+                let resultadoHTML = `
+                <p>Total sin IVA: ${totalGasto}€</p>
+                <p>Número de personas: ${numeroAmigos}</p>
+                <p>IVA 21%: ${pagoIVA.toFixed(2)}€</p> 
+                <p>Total con IVA: ${totalConIVA.toFixed(2)}€</p>
+                <p>Pago por persona: ${pagoPorAmigo.toFixed(2)}€</p>
+                `;
+                //Insertamos el resultado en el div con id resultado - innerHTML - para insertar HTML dentro de un elemento
+                document.getElementById('resultado').innerHTML = resultadoHTML;
+            })
+
+    </script>
+</body>
+
+</html>
