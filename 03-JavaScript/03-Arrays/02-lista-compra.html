@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista compra</title>
+</head>
+
+<body>
+    <h1>Lista compra</h1>
+    <button onclick="mostrarCompras()">Mostrar Lista de Compra</button><br>
+    <button onclick="agregarProducto()">Agregar</button><br>
+    <button onclick="eliminarProducto()">Eliminar último producto</button><br>
+    <button onclick="contarProducto()">Contar productos</button><br>
+    <div id="mostrar"></div>
+    <script>
+        //Array inicial de compras - Lista de compras
+        let compras = ["pan", "leche", "galletas", "patatas", "huevos", "azúcar"];
+
+        //Funcion
+        function mostrarCompras() {
+            //Mostrar todo el array
+            document.getElementById('mostrar').innerHTML =
+                "<h3>Lista Compra: </h3>" +
+                "<p><strong>Array completo:</strong> [" + compras.join(', ') + "] </p>" +
+                "<p><strong>Primer producto:</strong> " + compras[0] + " (índice 0) </p>" +
+                "<p><strong>Segundo producto:</strong> " + compras[1] + " (índice 1) </p>";
+
+        };
+        //Mostrar compra:
+        mostrarCompras();
+
+        function agregarProducto() {
+            let nuevoProducto = prompt("Producto a agregar: ");
+            if (nuevoProducto) {
+                compras.push(nuevoProducto);
+                document.getElementById("mostrar").innerHTML =
+                    "<p>✅ Producto agregado: <strong>" + nuevoProducto + "</strong></p>" +
+                    "<p>Nueva Lista: [" + compras.join(', ') + "]</p> "
+            }
+        };
+
+        function eliminarProducto() {
+            if (compras.length > 0) {
+                let ultimo = compras.pop();
+                document.getElementById("mostrar").innerHTML =
+                    "<p>❌ Producto eliminado: <strong>" + ultimo + "</strong></p>" +
+                    "<p>Nueva Lista: [" + compras.join(', ') + "]</p> ";
+            }
+            else {
+                document.getElementById("mostrar").innerHTML =
+                    "<p> ❗ La lista está vacía </p> ";
+            }
+        };
+
+        function contarProducto() {
+
+            document.getElementById("mostrar").innerHTML =
+                "<p>Tienes <strong>" + compras.length + "</strong> productos en tu lista</p>" +
+                "<p>Lista: [" + compras.join(', ') + "]</p> "
+
+        };
+    </script>
+
+</body>
+
+</html>
