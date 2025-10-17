@@ -15,6 +15,10 @@
         function sumar(a,b){
             a = parseFloat(prompt("Introduce el primer número: "));
             b = parseFloat(prompt("Introduce el segundo número: "));
+            if(isNaN(a)||isNaN(b)){
+            alert("Introduce el número en dígitos!");
+            return sumar(a,b);            
+            }
         return alert("El resultado es: "+ (a+b));
     };
         
