@@ -32,7 +32,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
 
         <button onclick="mostrarlista()">Mostrar lista</button>
         <button onclick="agregarAlumno()">Agregar alumno</button>
-        <button onclick="eliminarAlumno()">Eliminar último alumno</button>
+        <button onclick="eliminarAlumno()">Eliminar primer alumno</button>
         <button onclick="buscarAlumno()">Buscar índice alumno</button>
         <button onclick="ordenarLista()">Ordenar lista</button>
          <button onclick="buscarPorNombreOApellidos()">Buscar alumno por nombre o apellido</button>
@@ -69,7 +69,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             }
              document.getElementById('listaAlumnos').innerHTML = texto;
              
-             document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de "+ alumos.length +" alumnos </p>"
+             document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de "+ alumnos.length +" alumnos </p>"
         };
 
         mostrarlista();
@@ -79,7 +79,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             if (estudianteNuevo) {
                 alumnos.push(estudianteNuevo);
                 mostrarlista();
-                document.getElementById('mensajes').innerHTML = "<p> has agregado al alumno: " + estudianteNuevo + "</p>";
+                document.getElementById('mensajes').innerHTML = "<p> Has agregado al alumno: " + estudianteNuevo + "</p>";
             }
             else {
                 alert("no escribiste nada");
@@ -91,7 +91,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             if (alumnos.length > 0) {
                 let alumnoEliminado = alumnos.shift();
                 mostrarlista();
-                document.getElementById('mensajes').innerHTML = "<p>has eliminado al alumno: " + alumnoEliminado + "</p>"
+                document.getElementById('mensajes').innerHTML = "<p> Has eliminado al alumno: " + alumnoEliminado + "</p>"
             }
             else {
                 alert("la lista esta vacia")
@@ -104,11 +104,11 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             let posicion = alumnos.indexOf(alumnoBuscado);
 
             if (posicion === -1) {
-                alert("no existe el alumno, intruce un nombre valido");
+                alert("No existe el alumno, intruce un nombre válido");
             }
             else { 
                 mostrarlista();
-                document.getElementById('mensajes').innerHTML = "<p> La posicion de " + alumnoBuscado + " es: " + posicion + "</p>"
+                document.getElementById('mensajes').innerHTML = "<p> La posición de " + alumnoBuscado + " es: " + posicion + "</p>"
             }
           
         };
