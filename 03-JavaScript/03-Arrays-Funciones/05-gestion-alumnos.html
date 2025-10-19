@@ -60,15 +60,18 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             'SEPULVEDA NAVARRO, PETERSON SADRAC'
         ]
         function mostrarlista() {
-            document.getElementById('listaAlumnos').innerHTML = "<p> [" + alumnos.join(', ') + "] </p>";
+            //document.getElementById('listaAlumnos').innerHTML = "<p> [" + alumnos.join(', ') + "] </p>";
 
-            document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de alumnos </p>"
-
-            /*let i;
-            for(i = 0 ; i <=alunmnos.length ; i++){
-            document.getElementById('listaAlumnos').innerHtml= alumnos[i];
-            }*/
+            let texto= '';
+            for(let i = 0 ; i < alumnos.length ; i++){
+            texto +=
+             '<p>' + alumnos[i] + '</p>';
+            }
+             document.getElementById('listaAlumnos').innerHTML = texto;
+             
+             document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de "+ alumos.length +" alumnos </p>"
         };
+
         mostrarlista();
 
         function agregarAlumno() {
@@ -88,11 +91,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             if (alumnos.length > 0) {
                 let alumnoEliminado = alumnos.shift();
                 mostrarlista();
-
-                document.getElementById('mensajes').innerHTML = "<p>has eliminado al alumno: " +
-                    alumnoEliminado
-                    +
-                    "</p>"
+                document.getElementById('mensajes').innerHTML = "<p>has eliminado al alumno: " + alumnoEliminado + "</p>"
             }
             else {
                 alert("la lista esta vacia")
@@ -101,30 +100,26 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
         }
 
         function buscarAlumno() {
-
             let alumnoBuscado = prompt("Intruduce nombre alumno: ");
             let posicion = alumnos.indexOf(alumnoBuscado);
+
             if (posicion === -1) {
                 alert("no existe el alumno, intruce un nombre valido");
             }
             else { 
-                 mostrarlista();
-                document.getElementById('mensajes').innerHTML = "<p>La posicion de " + alumnoBuscado + " es: " + posicion + "</p>"
+                mostrarlista();
+                document.getElementById('mensajes').innerHTML = "<p> La posicion de " + alumnoBuscado + " es: " + posicion + "</p>"
             }
           
         };
-        function ordenarLista() {
+        function ordenarLista() { 
+            alumnos.sort();
             //meter lista ordenada en otra variable 
             let listaOrdenada = [...alumnos].sort();
-            //Mostrar la lista sin ordenar en el div listaAlumnos
+            // Mostrar lista ordenada 
             mostrarlista();
-            // Mostrar lista ordenada en el div mensajes
-            document.getElementById('mensajes').innerHTML = "<p> Ordenar lista </p> <p> [" + listaOrdenada + "] </p>"
-            //ordenamos la lista original
-            alumnos.sort();
-        }
-
-        
+            document.getElementById('mensajes').innerHTML = "<p> Ordenar lista </p>";
+        } 
 
             function buscarPorNombreOApellidos() {
                 //Separar el nombre de los apellidos de los alumnos, aquí usamos un array de objetos
