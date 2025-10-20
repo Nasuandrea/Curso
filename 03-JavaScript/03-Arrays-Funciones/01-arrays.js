@@ -49,7 +49,29 @@ console.log(colores);
 // Eliminar elementos: Para no perder el valor eliminado creamos una nueva variable(array) sin el elemento del array:
 
 let ultimo = [].concat(colores); // Crea una copia del array colores en la variable ultimo
-ultimo.pop() //.pop() Elimina el ultimo elemento del array ultimo
-console.log(colores);
-console.log(ultimo);
+ultimo.pop(); //.pop() Elimina el ultimo elemento del array ultimo
+console.log("lista sin el ultimo color: " + ultimo);
+console.log("Lista completa: "+colores);
 
+// Eliminar el primero
+
+let primero = colores.shift();
+console.log("He eliminado el color: " + primero);
+console.log(colores);
+
+
+
+//Atajo teclado fn + ' (cuando tenga seleccionada un texto lo) comenta con comilla simple
+
+// Métodos de Arrays
+colores.sort(); //Ordena
+console.log(colores)
+colores.map(col => "color "+ col);
+console.log(colores);
+/**
+function ordenar(a,b){a-b};
+(a,b)=>a-b; */
+
+let listaColores = colores.join();
+console.log(listaColores);
+console.log(typeof(listaColores));
