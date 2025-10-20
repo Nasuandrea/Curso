@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <h2>Calculadora</h2>
+    <form id="form-calculadora">
+        <input type="text" id="pantalla" placeholder="0" value="">
+        <br><br>
+        <button onclick="calc.agregarNumero('7')">7</button>
+        <button onclick="calc.agregarNumero('8')">8</button>
+        <button onclick="calc.agregarNumero('9')">9</button>
+        <button onclick="calc.agregarOperador('/')">/</button>
+        <br><br>
+        <button onclick="calc.agregarNumero('4')">4</button>
+        <button onclick="calc.agregarNumero('5')">5</button>
+        <button onclick="calc.agregarNumero('6')">6</button>
+        <button onclick="calc.agregarOperador('*')">*</button>
+        <br><br>
+        <button onclick="calc.agregarNumero('1')">1</button>
+        <button onclick="calc.agregarNumero('2')">2</button>
+        <button onclick="calc.agregarNumero('3')">3</button>
+        <button onclick="calc.agregarOperador('-')">-</button>
+        <br><br>
+        <button onclick="calc.agregarNumero('0')">0</button>
+        <button onclick="calc.agregarNumero('.')">.</button>
+        <button onclick="calc.limpiar()">C</button>
+        <button onclick="calc.agregarOperador('+')">+</button>
+        <br><br>
+        <button onclick="calc.calcular()">=</button>
+    </form>
+    <script>
+        //Objeto principal
+        const calc = {
+            pantalla: document.getElementById("pantalla"),
+            operador: null,
+            valorAnterior: null,
+            valorActual: '',
+
+            //función para agregar números
+            agregarNumero: function (numero) {
+                if (numero === '.' && this.valorActual.includes('.')) {
+                    return;
+                }
+                this.valorActual += numero;
+                this.actualizarPantalla();
+            },
+
+            //función agregar operador
+            agregarOperador: function (op) {
+                if (this.valorActual === '') {
+                    return;
+                }
+                if (this.valorActual !== null && this.operador !== null) {
+                    this.calcularInterno();
+                }
+                this.operador = op;
+                this.valorAnterior = this.valorActual;
+                this.valorActual = '';
+            }
+            ,
+            //Función calcular
+            calcularInterno: function () {
+                if (this.valorAnterior === null || this.operador === null || this.valorActual === '') {
+                    return
+                }
+                const anterior = parseFloat(this.valorAnterior);
+                const actual = parseFloat(this.valorActual);
+                let resultado;
+                if (this.operador === '+') {
+                    resultado = anterior + actual;
+                } else if (this.operador === '-') {
+                    resultado = anterior - actual;
+                } else if (this.operador === '*') {
+                    resultado = anterior * actual;
+
+                } else if (this.operador === '/') {
+                    if (actual === 0) {
+                        alert('No se puede dividir entre 0');
+                        this.limpiar();
+                        return;
+                    }
+
+                    resultado = anterior / actual;
+                }
+                this.valorActual = resultado.toString();
+                this.operador = null;
+            },
+
+            calcular: function(){
+            if(this.valorActual === null || this.operador === null && valorActual ===''){}
+            }
+        }
+
+    </script>
+</body>
+
+</html>
