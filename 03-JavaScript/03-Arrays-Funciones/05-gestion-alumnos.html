@@ -35,7 +35,7 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
         <button onclick="eliminarAlumno()">Eliminar primer alumno</button>
         <button onclick="buscarAlumno()">Buscar índice alumno</button>
         <button onclick="ordenarLista()">Ordenar lista</button>
-         <button onclick="buscarPorNombreOApellidos()">Buscar alumno por nombre o apellido</button>
+        <button onclick="buscarPorNombreOApellidos()">Buscar alumno por nombre o apellido</button>
 
     </div>
 
@@ -62,14 +62,14 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
         function mostrarlista() {
             //document.getElementById('listaAlumnos').innerHTML = "<p> [" + alumnos.join(', ') + "] </p>";
 
-            let texto= '';
-            for(let i = 0 ; i < alumnos.length ; i++){
-            texto +=
-             '<p>' + alumnos[i] + '</p>';
+            let texto = '';
+            for (let i = 0; i < alumnos.length; i++) {
+                texto +=
+                    '<p>' + alumnos[i] + '</p>';
             }
-             document.getElementById('listaAlumnos').innerHTML = texto;
-             
-             document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de "+ alumnos.length +" alumnos </p>"
+            document.getElementById('listaAlumnos').innerHTML = texto;
+
+            document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de " + alumnos.length + " alumnos </p>"
         };
 
         mostrarlista();
@@ -106,24 +106,24 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             if (posicion === -1) {
                 alert("No existe el alumno, intruce un nombre válido");
             }
-            else { 
+            else {
                 mostrarlista();
                 document.getElementById('mensajes').innerHTML = "<p> La posición de " + alumnoBuscado + " es: " + posicion + "</p>"
             }
-          
+
         };
-        function ordenarLista() { 
+        function ordenarLista() {
             alumnos.sort();
             //meter lista ordenada en otra variable 
             let listaOrdenada = [...alumnos].sort();
             // Mostrar lista ordenada 
             mostrarlista();
             document.getElementById('mensajes').innerHTML = "<p> Ordenar lista </p>";
-        } 
+        }
 
-            function buscarPorNombreOApellidos() {
-                //Separar el nombre de los apellidos de los alumnos, aquí usamos un array de objetos
-       
+        function buscarPorNombreOApellidos() {
+            //Separar el nombre de los apellidos de los alumnos, aquí usamos un array de objetos
+
             let nombreApellidos = [];
             for (let i = 0; i < alumnos.length; i++) {
                 let partes = alumnos[i].split(", ");
@@ -135,21 +135,21 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
             }
             console.log(nombreApellidos);
 
-                let alumnoBuscado = prompt("Introduce nombre o apellidos a buscar:");
-                // Aqui usamos findIndex  y includes para buscar en ambos campos de los objetos
-                // findIndex devuelve la posición del primer elemento que cumple la condición, o -1 si no se encuentra
-                let posicion = nombreApellidos.findIndex(obj =>{  
-                    // includes verifica si una cadena contiene otra cadena
-                    return obj.nombre.includes(alumnoBuscado) || obj.apellidos.includes(alumnoBuscado)
-                });
-                console.log(posicion);
-                if (posicion === -1) {
-                    alert("No existe el alumno, introduce un nombre o apellidos válidos.");
-                } else {
-                    mostrarlista
-                    document.getElementById('mensajes').innerHTML = "<p>La posición de " + alumnoBuscado + " es: " + posicion + "</p>";
-                }
+            let alumnoBuscado = prompt("Introduce nombre o apellidos a buscar:");
+            // Aqui usamos findIndex e includes para buscar en ambos campos de los objetos
+            // findIndex devuelve la posición del primer elemento que cumple la condición, o -1 si no se encuentra
+            let posicion = nombreApellidos.findIndex(obj => {
+                // includes verifica si una cadena contiene otra cadena
+                return obj.nombre.includes(alumnoBuscado) || obj.apellidos.includes(alumnoBuscado)
+            });
+            console.log(posicion);
+            if (posicion === -1) {
+                alert("No existe el alumno, introduce un nombre o apellidos válidos.");
+            } else {
+                mostrarlista
+                document.getElementById('mensajes').innerHTML = "<p>La posición de " + alumnoBuscado + " es: " + posicion + "</p>";
             }
+        }
 
 
     </script>
