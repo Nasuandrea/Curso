@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003_c_ GESTION - Funciones Javascript</title>
+</head>
+
+<body>
+    <!-- LISTADO ALUMNOS
+
+
+BAMIO SAA, NESTOR
+BREA FRKA, JORGE LUIS
+COLLAZO CACHO, ANDREA
+DIEGUEZ , JONATHAN CESAR
+FERNANDEZ MARTINEZ, MARIA D ANGELES
+FERNANDEZ VILLANUEVA, MARTA
+GALLEGO FERNANDEZ, ALEXANDRE
+IPARRAGUIRRE RODRIGUEZ, MATIAS
+JACOME COUÑAGO, CARLOS
+KERFAH , ISMAIL
+RODAL FERNANDEZ, VANESA
+RUIZ CAÑIZARES, YENNY TERESA
+SEPULVEDA NAVARRO, PETERSON SADRAC
+ -->
+
+    <div id="listaAlumnos"><!-- lista alumnos --></div>
+
+    <div id="botones"> <!-- 5 botones mostrar, agregar, eliminar, buscar y ordenar -->
+
+        <button onclick="mostrarlista()">Mostrar lista</button>
+        <button onclick="agregarAlumno()">Agregar alumno</button>
+        <button onclick="eliminarAlumno()">Eliminar primer alumno</button>
+        <button onclick="buscarAlumno()">Buscar índice alumno</button>
+        <button onclick="ordenarLista()">Ordenar lista</button>
+         <button onclick="buscarPorNombreOApellidos()">Buscar alumno por nombre o apellido</button>
+
+    </div>
+
+    <div id="mensajes"><!-- mensajes --></div>
+
+    <script>
+
+
+        let alumnos = [
+            'BAMIO SAA, NESTOR',
+            'BREA FRKA, JORGE LUIS',
+            'COLLAZO CACHO, ANDREA',
+            'DIEGUEZ , JONATHAN CESAR',
+            'FERNANDEZ MARTINEZ, MARIA D ANGELES',
+            'FERNANDEZ VILLANUEVA, MARTA',
+            'GALLEGO FERNANDEZ, ALEXANDRE',
+            'IPARRAGUIRRE RODRIGUEZ, MATIAS',
+            'JACOME COUÑAGO, CARLOS',
+            'KERFAH, ISMAIL',
+            'RODAL FERNANDEZ, VANESA',
+            'RUIZ CAÑIZARES, YENNY TERESA',
+            'SEPULVEDA NAVARRO, PETERSON SADRAC'
+        ]
+        function mostrarlista() {
+            //document.getElementById('listaAlumnos').innerHTML = "<p> [" + alumnos.join(', ') + "] </p>";
+
+            let texto= '';
+            for(let i = 0 ; i < alumnos.length ; i++){
+            texto +=
+             '<p>' + alumnos[i] + '</p>';
+            }
+             document.getElementById('listaAlumnos').innerHTML = texto;
+             
+             document.getElementById('mensajes').innerHTML = "<p> Mostrar lista de "+ alumnos.length +" alumnos </p>"
+        };
+
+        mostrarlista();
+
+        function agregarAlumno() {
+            let estudianteNuevo = prompt("Agregar alumno");
+            if (estudianteNuevo) {
+                alumnos.push(estudianteNuevo);
+                mostrarlista();
+                document.getElementById('mensajes').innerHTML = "<p> Has agregado al alumno: " + estudianteNuevo + "</p>";
+            }
+            else {
+                alert("no escribiste nada");
+            }
+
+        };
+
+        function eliminarAlumno() {
+            if (alumnos.length > 0) {
+                let alumnoEliminado = alumnos.shift();
+                mostrarlista();
+                document.getElementById('mensajes').innerHTML = "<p> Has eliminado al alumno: " + alumnoEliminado + "</p>"
+            }
+            else {
+                alert("la lista esta vacia")
+            }
+
+        }
+
+        function buscarAlumno() {
+            let alumnoBuscado = prompt("Intruduce nombre alumno: ");
+            let posicion = alumnos.indexOf(alumnoBuscado);
+
+            if (posicion === -1) {
+                alert("No existe el alumno, intruce un nombre válido");
+            }
+            else { 
+                mostrarlista();
+                document.getElementById('mensajes').innerHTML = "<p> La posición de " + alumnoBuscado + " es: " + posicion + "</p>"
+            }
+          
+        };
+        function ordenarLista() { 
+            alumnos.sort();
+            //meter lista ordenada en otra variable 
+            let listaOrdenada = [...alumnos].sort();
+            // Mostrar lista ordenada 
+            mostrarlista();
+            document.getElementById('mensajes').innerHTML = "<p> Ordenar lista </p>";
+        } 
+
+            function buscarPorNombreOApellidos() {
+                //Separar el nombre de los apellidos de los alumnos, aquí usamos un array de objetos
+       
+            let nombreApellidos = [];
+            for (let i = 0; i < alumnos.length; i++) {
+                let partes = alumnos[i].split(", ");
+                let nombre = partes[1];
+                let apellidos = partes[0];
+                // Agregar objetos al array
+                nombreApellidos.push({ nombre: nombre, apellidos: apellidos });
+                //console.log("Nombre: " + nombre + " Apellidos: " + apellidos);
+            }
+            console.log(nombreApellidos);
+
+                let alumnoBuscado = prompt("Introduce nombre o apellidos a buscar:");
+                // Aqui usamos findIndex  y includes para buscar en ambos campos de los objetos
+                // findIndex devuelve la posición del primer elemento que cumple la condición, o -1 si no se encuentra
+                let posicion = nombreApellidos.findIndex(obj =>{  
+                    // includes verifica si una cadena contiene otra cadena
+                    return obj.nombre.includes(alumnoBuscado) || obj.apellidos.includes(alumnoBuscado)
+                });
+                console.log(posicion);
+                if (posicion === -1) {
+                    alert("No existe el alumno, introduce un nombre o apellidos válidos.");
+                } else {
+                    mostrarlista
+                    document.getElementById('mensajes').innerHTML = "<p>La posición de " + alumnoBuscado + " es: " + posicion + "</p>";
+                }
+            }
+
+
+    </script>
+</body>
+
+</html>
