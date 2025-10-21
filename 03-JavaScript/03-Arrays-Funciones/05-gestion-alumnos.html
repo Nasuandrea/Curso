@@ -8,24 +8,6 @@
 </head>
 
 <body>
-    <!-- LISTADO ALUMNOS
-
-
-BAMIO SAA, NESTOR
-BREA FRKA, JORGE LUIS
-COLLAZO CACHO, ANDREA
-DIEGUEZ , JONATHAN CESAR
-FERNANDEZ MARTINEZ, MARIA D ANGELES
-FERNANDEZ VILLANUEVA, MARTA
-GALLEGO FERNANDEZ, ALEXANDRE
-IPARRAGUIRRE RODRIGUEZ, MATIAS
-JACOME COUÑAGO, CARLOS
-KERFAH , ISMAIL
-RODAL FERNANDEZ, VANESA
-RUIZ CAÑIZARES, YENNY TERESA
-SEPULVEDA NAVARRO, PETERSON SADRAC
- -->
-
     <div id="listaAlumnos"><!-- lista alumnos --></div>
 
     <div id="botones"> <!-- 5 botones mostrar, agregar, eliminar, buscar y ordenar -->
@@ -133,25 +115,27 @@ SEPULVEDA NAVARRO, PETERSON SADRAC
                 nombreApellidos.push({ nombre: nombre, apellidos: apellidos });
                 //console.log("Nombre: " + nombre + " Apellidos: " + apellidos);
             }
-            console.log(nombreApellidos);
+            //console.log(nombreApellidos);
 
+            let alumnoEncontrado = [];
+            let textoAlumnos= '';
             let alumnoBuscado = prompt("Introduce nombre o apellidos a buscar:");
-            // Aqui usamos findIndex e includes para buscar en ambos campos de los objetos
-            // findIndex devuelve la posición del primer elemento que cumple la condición, o -1 si no se encuentra
-            let posicion = nombreApellidos.findIndex(obj => {
-                // includes verifica si una cadena contiene otra cadena
-                return obj.nombre.includes(alumnoBuscado) || obj.apellidos.includes(alumnoBuscado)
-            });
-            console.log(posicion);
-            if (posicion === -1) {
+            for (i = 0; i < nombreApellidos.length; i++) {
+                if (nombreApellidos[i].nombre.includes(alumnoBuscado) || nombreApellidos[i].apellidos.includes(alumnoBuscado)) {
+                    alumnoEncontrado.push(nombreApellidos[i])
+                    textoAlumnos += nombreApellidos[i].nombre + ", "+ nombreApellidos[i].apellidos+ "<br>";
+                }
+            }
+              console.log(alumnoEncontrado);
+
+            if (alumnoEncontrado.length == 0) {
                 alert("No existe el alumno, introduce un nombre o apellidos válidos.");
-            } else {
-                mostrarlista
-                document.getElementById('mensajes').innerHTML = "<p>La posición de " + alumnoBuscado + " es: " + posicion + "</p>";
+            }
+            else{
+            mostrarlista();
+            document.getElementById('mensajes').innerHTML = "<p> Se han encontrado " + alumnoEncontrado.length + " estudiantes: <br>"+ textoAlumnos + "</p>";
             }
         }
-
-
     </script>
 </body>
 

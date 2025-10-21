@@ -1,79 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
-
 <body>
-    <h2>Calculadora</h2>
-    <form id="form-calculadora">
+    <h1>Calculadora</h1>
+    
+    <div>
         <input type="text" id="pantalla" placeholder="0" value="">
         <br><br>
+        <!-- botones de la calculadora 
+         cada boton tiene un evento que llama a un funcion principal denominada "calc" y esta a su vez le agrego la propiedad del numero-->
         <button onclick="calc.agregarNumero('7')">7</button>
         <button onclick="calc.agregarNumero('8')">8</button>
         <button onclick="calc.agregarNumero('9')">9</button>
+
+
+        <!-- botones operador es la funcion principal con la propiedad operador -->
         <button onclick="calc.agregarOperador('/')">/</button>
-        <br><br>
+        <br>
+        
         <button onclick="calc.agregarNumero('4')">4</button>
         <button onclick="calc.agregarNumero('5')">5</button>
         <button onclick="calc.agregarNumero('6')">6</button>
         <button onclick="calc.agregarOperador('*')">*</button>
-        <br><br>
+        <br>
+        
         <button onclick="calc.agregarNumero('1')">1</button>
         <button onclick="calc.agregarNumero('2')">2</button>
         <button onclick="calc.agregarNumero('3')">3</button>
         <button onclick="calc.agregarOperador('-')">-</button>
-        <br><br>
+        <br>
+        
         <button onclick="calc.agregarNumero('0')">0</button>
+
         <button onclick="calc.agregarNumero('.')">.</button>
+
+
         <button onclick="calc.limpiar()">C</button>
         <button onclick="calc.agregarOperador('+')">+</button>
-        <br><br>
+        <br>
+        
         <button onclick="calc.calcular()">=</button>
-    </form>
+    </div>
+
     <script>
-        //Objeto principal
+        // Objeto Calculadora
+        //calc almacena los datos con la informacion necesaria
         const calc = {
-            pantalla: document.getElementById("pantalla"),
+            pantalla: document.getElementById('pantalla'),
             operador: null,
             valorAnterior: null,
             valorActual: '',
 
-            //función para agregar números
-            agregarNumero: function (numero) {
-                //el if comprueba si el valor introducido es un punto y si el valor actual ya tiene el ., si se cumplen retorna y no hace nada
+            // Función para agregar números
+            agregarNumero: function(numero) {
                 if (numero === '.' && this.valorActual.includes('.')) {
                     return;
                 }
-                //Si no tiene el punto lo añade, y si es otro numero cualquiera también lo añade al valor actual.
                 this.valorActual += numero;
                 this.actualizarPantalla();
             },
 
-            //función agregar operador
-            agregarOperador: function (op) {
+            // Función para agregar operador
+            agregarOperador: function(op) {
                 if (this.valorActual === '') {
                     return;
                 }
-                if (this.valorActual !== null && this.operador !== null) {
+
+                if (this.valorAnterior !== null && this.operador !== null) {
                     this.calcularInterno();
                 }
+
                 this.operador = op;
                 this.valorAnterior = this.valorActual;
                 this.valorActual = '';
-            }
-            ,
-            //Función calcular
-            calcularInterno: function () {
+            },
+
+            // Función interna para calcular
+            calcularInterno: function() {
                 if (this.valorAnterior === null || this.operador === null || this.valorActual === '') {
-                    return
+                    return;
                 }
+
                 const anterior = parseFloat(this.valorAnterior);
                 const actual = parseFloat(this.valorActual);
                 let resultado;
+
                 if (this.operador === '+') {
                     resultado = anterior + actual;
                 } else if (this.operador === '-') {
@@ -82,39 +97,44 @@
                     resultado = anterior * actual;
                 } else if (this.operador === '/') {
                     if (actual === 0) {
-                        alert('No se puede dividir entre 0');
+                        alert('No se puede dividir entre cero');
                         this.limpiar();
                         return;
                     }
                     resultado = anterior / actual;
                 }
+
                 this.valorActual = resultado.toString();
                 this.operador = null;
+                this.valorAnterior = null;
             },
 
-            calcular: function(){
-            if(this.valorAnterior === null || this.operador === null || valorActual ===''){
-            return;
+            // Función para calcular resultado final
+            calcular: function() {
+                if (this.valorAnterior === null || this.operador === null || this.valorActual === '') {
+                    return;
+                }
+
+                this.calcularInterno();
+                this.actualizarPantalla();
+            },
+
+            // Función para limpiar
+            limpiar: function() {
+                this.valorActual = '';
+                this.valorAnterior = null;
+                this.operador = null;
+                this.actualizarPantalla();
+            },
+
+            // Función para actualizar pantalla
+            actualizarPantalla: function() {
+                this.pantalla.value = this.valorActual || '0';
             }
-            this.calcularInterno();
-            this.actualizarPantalla();
-            },
+        };
 
-            limpiar: function(){
-            this.valorActual='';
-            this.valorAnterior=null;
-            this.operador=null;
-            this.actualizarPantalla();
-            },
-            
-            actualizarPantalla: function(){
-            this.actualizarPantalla = this.valorActual || '0';
-            }
-        }
-
+        // Inicializar pantalla
         calc.actualizarPantalla();
-
     </script>
 </body>
-
 </html>
