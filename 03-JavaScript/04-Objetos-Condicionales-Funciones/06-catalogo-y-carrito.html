@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo y carrito</title>
+</head>
+
+<body>
+    <h1>Catálogo de productos</h1>
+
+    <!--Filtrado por categorias-->
+    <div>
+        <!-- Seleccion de categorias -->
+        <label for="filtroCategoria">Filtrar por categoría</label>
+        <!--Menu desplegable: se ejecuta al llamar el filtrado de los productos -->
+        <select id="filtroCategoria" onchange="filtrarProductos()">
+            <option value="todos">Todos</option>
+            <option value="electronica">Electrónica</option>
+            <option value="ropa">Ropa</option>
+            <option value="hogar">Hogar</option>
+        </select>
+    </div>
+    <hr>
+
+    <!-- Contenedor para mostrar los productos de forma dinámica -->
+    <div id="productos"></div>
+    <hr>
+
+    <!--Carrito compra-->
+    <h2>🛒Carrito compra</h2>
+    <div id="carrito"></div>
+
+    <!-- Mostrar el total a pagar-->
+    <h3>Total: <span id="total">0.00</span>€</h3>
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+
+    <script>
+        //Array de los productos disponibles
+        //Cada producto tiene: id, nombre, precio, categoria y stock
+
+        let productos = [{
+            id: 1,
+            nombre: "ordenador portátil HP",
+            precio: 599.99,
+            categoria: "electronica",
+            stock: 5
+        }, {
+            id: 2,
+            nombre: "Mouse inalámbrico",
+            precio: 12.95,
+            categoria: "electronica",
+            stock: 20
+        }, {
+            id: 3,
+            nombre: "Camiseta Básica",
+            precio: 9.99,
+            categoria: "ropa",
+            stock: 30
+        }, {
+            id: 4,
+            nombre: "Taza",
+            precio: 2.99,
+            categoria: "hogar",
+            stock: 50
+        }, {
+            id: 5,
+            nombre: "Lámpara led",
+            precio: 30.50,
+            categoria: "hogar",
+            stock: 10
+        }, {
+            id: 6,
+            nombre: "Zapatillas deportivas",
+            precio: 50,
+            categoria: "ropa",
+            stock: 13
+        }, {
+            id: 7,
+            nombre: "Reloj de pared",
+            precio: 22.75,
+            categoria: "hogar",
+            stock: 10
+        }, {
+            id: 8,
+            nombre: "Pantalón vaquero",
+            precio: 22.90,
+            categoria: "ropa",
+            stock: 50
+        }, {
+            id: 9,
+            nombre: "Teclado gamer",
+            precio: 30.90,
+            categoria: "electronica",
+            stock: 50
+        }
+        ]
+        // Array donde se almacenen los productos que selecciono
+        let carrito = [];
+
+        // Función que recibe una lista de productos y los muestra en la página
+        function mostrarProductos(listaProductos) {
+            // Obtener el contenedor donde se mostraran los productos;
+            const contenedor = document.getElementById('productos');
+            // Evitar duplicado de productos
+            contenedor.innerHTML = '';
+            // Recorrer cada producto de la lista recibida 
+            listaProductos.forEach(producto => {
+                // Para cada producto crea un elemento div
+                const div = document.createElement('div');
+
+                // Crear estilos dentro del div: border, padding, margin
+                div.style.border = '1px solid #ccc';
+                div.style.padding = '10px';
+                div.style.margin = '10px 0'
+
+                // Insertar dentro del html la información del producto
+                // Utiliar toFixed(2) para redondear el precio a 2 decimales
+                // Agregar un botón onclick que ejecuta agregarAlCarrito con el id del producto
+                div.innerHTML = `<h3>${producto.nombre}</h3>
+                <p><strong>Precio:</strong> ${producto.precio}€</p>
+                <p><strong>Categoria:</strong> ${producto.categoria}</p>
+                <p><strong>Stock disponible:</strong> ${producto.stock} unidades</p>
+                <button onclick="agregarAlCarrito(${producto.id})">Agregar Carrito</button>`;
+
+                // Agregamos el div al contenedor principal
+
+                contenedor.appendChild(div);
+            })
+
+        }
+
+        //Filtrar productos por categoria
+        function filtrarProductos() {
+            const filtro = document.getElementById('filtroCategoria').value;
+            if (filtro === "todos") {
+                mostrarProductos(productos);
+            }
+            //filtrar el array de productos por categoria seleccionada
+            // filter() crea un nuevo array solo con los productos de la ategoría
+            else {
+                const productosFiltrados =
+                    productos.filter(p => p.categoria === filtro);
+                mostrarProductos(productosFiltrados);
+            }
+        }
+
+        /*  CARRITO MIO - Falta no mostrar mas de una vez los productos: incrementar cantidad  */
+
+        function agregarAlCarrito(id) {
+            //carrito.push(productos.filter(p => p.id === id ));
+
+            productos.forEach(p => {
+                if (p.id === id) {
+                    p.stock--;
+                    mostrarProductos(productos);
+                    if (p.stock > 0) {
+                        carrito.push({ id: p.id, nombre: p.nombre, precio: p.precio, cantidad: 1 });
+                    } else {
+                        alert("No hay existencias de " + p.nombre)
+                        return
+                    }
+                }
+            })
+
+            const divCarrito = document.getElementById("carrito");
+            divCarrito.innerHTML = '';
+            carrito.forEach(p => {
+                const div = document.createElement('div');
+                div.innerHTML = `<p>${p.nombre} - <strong>Precio:</strong> ${p.precio}€ <p>`;
+
+                divCarrito.appendChild(div);
+            })
+            let total = 0;
+            let span = document.getElementById("total");
+            carrito.forEach(p => {
+                total += p.precio;
+            })
+            total.toFixed(2);
+            span.innerHTML = total.toString();
+        }
+
+
+        //Funcion vaciar carrito
+        function vaciarCarrito() {
+            alert("Estás seguro? ");
+            carrito = [];
+            const divCarrito = document.getElementById("carrito");
+            divCarrito.innerHTML = 'Carrito vacío';
+            let span = document.getElementById("total");
+            span.innerHTML = "0.00"
+            console.log(carrito);
+        }
+
+
+        mostrarProductos(productos);
+
+    </script>
+
+</body>
+
+
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frutería</title>
-    <script> </script>
+    <script src= "https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -30,21 +30,19 @@
         */
         let productos = ["Patata", "Tomate", "Plátano", "Lechuga", "Cebolla", "Sandía", "Manzana", "Pera"]
         let listaCompra = [];
+        let i = 0;
 
-
-        /*let contador= 0;
-       //HAcer lista productos con boton para agregar a lista compra
-        for (let i = 0; i < productos.length; i++) {
+        let contador= 0;
+       //Hacer lista productos con boton para agregar a lista compra
+        for (i = 0; i < productos.length; i++) {
         contador= contador++;
-        document.getElementById("lista-productos").innerHTML += productos[i] + "<button onclick='meterEnCesta()'>+</button> <br>";
+        document.getElementById("lista-productos").innerHTML += productos[i] + " <button onclick='meterEnCesta()' id='btnAgregar'>+</button> <br>";
         }
         
         function meterEnCesta(){
         listaCompra.push(productos[contador]);
         console.log(listaCompra);
         }
-
-        */
 
         //Mostrar productos
         function mostrarProductos() {
@@ -65,7 +63,7 @@
                 }
                 if(contador == 0){
                 
-                Swal.fire("Lo siento","No existe ese producto",success);
+                Swal.fire("Lo siento","No existe ese producto","warning");
                 }
             }
             mostrarCompra();
