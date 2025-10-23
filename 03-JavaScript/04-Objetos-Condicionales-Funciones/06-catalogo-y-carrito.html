@@ -98,7 +98,7 @@
         ]
         // Array donde se almacenen los productos que selecciono
         let carrito = [];
-
+        let span = document.getElementById("total");
         // Función que recibe una lista de productos y los muestra en la página
         function mostrarProductos(listaProductos) {
             // Obtener el contenedor donde se mostraran los productos;
@@ -150,37 +150,63 @@
 
         function agregarAlCarrito(id) {
             //carrito.push(productos.filter(p => p.id === id ));
-
+            let itemCarrito = carrito.find(item => item.id === id);
             productos.forEach(p => {
                 if (p.id === id) {
                     p.stock--;
                     mostrarProductos(productos);
-                    if (p.stock > 0) {
-                        carrito.push({ id: p.id, nombre: p.nombre, precio: p.precio, cantidad: 1 });
-                    } else {
+                    if (p.stock < 0) {
                         alert("No hay existencias de " + p.nombre)
                         return
+                    } if (itemCarrito) {
+                        itemCarrito.cantidad++;
+                    }
+                    else {
+                        carrito.push({ id: p.id, nombre: p.nombre, precio: p.precio, cantidad: 1 });
                     }
                 }
-            })
+                actualizarCarrito();
+            });
+
+        }
+
+        // Función que actualiza la vista del carrito de compras
+        function actualizarCarrito() {
 
             const divCarrito = document.getElementById("carrito");
             divCarrito.innerHTML = '';
+            let total = 0;
             carrito.forEach(p => {
                 const div = document.createElement('div');
-                div.innerHTML = `<p>${p.nombre} - <strong>Precio:</strong> ${p.precio}€ <p>`;
+                // Aplica estilos al div
+                div.style.borderBottom = '1px solid #eee';
+                div.style.padding = '5px 0';
+                const subtotal = p.precio * p.cantidad;
 
+                // Suma el subtotal al total acumulado
+                total += subtotal;
+                div.innerHTML =
+                    `${p.cantidad} x ${p.nombre} - <strong>Precio:</strong> ${p.precio}€
+                <button onclick="eliminarDelCarrito(${p.id})">Eliminar</button>`;
                 divCarrito.appendChild(div);
             })
-            let total = 0;
-            let span = document.getElementById("total");
+            if (carrito.length === 0) {
+                divCarrito.innerHTML = '<p>El carrito está vacío</p>';
+            }
             carrito.forEach(p => {
                 total += p.precio;
             })
             total.toFixed(2);
             span.innerHTML = total.toString();
         }
+        function eliminarDelCarrito(id) {
+            // filter() crea un nuevo array excluyendo el item con el id especificado
+            // Mantiene todos los items cuyo id sea diferente al recibido
+            carrito = carrito.filter(item => item.id !== id);
 
+            // Actualiza la vista del carrito
+            actualizarCarrito();
+        }
 
         //Funcion vaciar carrito
         function vaciarCarrito() {
@@ -188,18 +214,16 @@
             carrito = [];
             const divCarrito = document.getElementById("carrito");
             divCarrito.innerHTML = 'Carrito vacío';
-            let span = document.getElementById("total");
             span.innerHTML = "0.00"
             console.log(carrito);
+            actualizarCarrito();
         }
-
 
         mostrarProductos(productos);
 
     </script>
 
 </body>
-
 
 
 </html>
