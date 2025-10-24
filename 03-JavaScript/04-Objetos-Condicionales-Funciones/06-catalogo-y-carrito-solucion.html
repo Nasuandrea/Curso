@@ -2,16 +2,15 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo de Productos</title>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" />
 </head>
 
 <body>
     <div class="container my-5">
-
         <!--Bootstrap
         Las clases se nombran usando el formato {property}{sides}-{size} para xs y {property}{sides}-{breakpoint}-{size} para sm, md, lg, xl y xxl.
 
@@ -31,66 +30,149 @@
 
         <!-- Título principal de la página -->
         <h1 class="text-center mb-4 text-primary">🛍️ Catálogo de Productos</h1>
+        <!-- Tarjeta -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row align-items-center">
                     <!-- Sección de filtros -->
-                    <div class="col md-3">
+                    <div class="col-md-3">
                         <!-- Etiqueta descriptiva para el selector de categorías -->
-                        <label for="filtroCategoria" class="form-label fw-bold">Filtrar por categoría: </label>
+                        <label for="filtroCategoria" class="form-label fw-bold">Filtrar por categoría:
+                        </label>
                     </div>
-                    <div class="col md-4">
+                    <div class="col-md-4">
                         <!-- Menú desplegable para seleccionar categoría. Al cambiar ejecuta filtrarProductos() -->
                         <select id="filtroCategoria" onchange="filtrarProductos()" class="form-select">
-                            <option value="todos">Todos</option> <!-- Opción para mostrar todos los productos -->
+                            <option value="todos">Todos</option>
+                            <!-- Opción para mostrar todos los productos -->
                             <option value="electronica">Electrónica</option>
                             <!-- Filtra solo productos de electrónica -->
-                            <option value="ropa">Ropa</option> <!-- Filtra solo productos de ropa -->
-                            <option value="hogar">Hogar</option> <!-- Filtra solo productos de hogar -->
+                            <option value="ropa">Ropa</option>
+                            <!-- Filtra solo productos de ropa -->
+                            <option value="hogar">Hogar</option>
+                            <!-- Filtra solo productos de hogar -->
                         </select>
                     </div>
                 </div>
             </div>
         </div>
 
-
         <!-- Línea separadora horizontal -->
-        <hr class="my-5">
+        <hr class="my-5" />
 
         <!-- Contenedor donde se mostrarán dinámicamente todos los productos -->
         <div id="productos" class="row"></div>
 
         <!-- Línea separadora horizontal -->
-        <hr class="my-5">
+        <hr class="my-5" />
 
         <!-- Título de la sección del carrito -->
         <h2 class="text-center mb-4 text-success">🛒 Carrito de Compras</h2>
         <div class="card">
             <div class="card-body">
                 <!-- Contenedor donde se mostrarán los productos agregados al carrito -->
-                <div id="carrito" class="text-center mb-4"></div>
+                <div id="carrito"></div>
+                <div class="text-end mt-4">
                     <!-- Muestra el total a pagar -->
-                    <h3>Total: <span id="total">0.00</span>€</h3>
-                
-                    <!-- Botón para vaciar todo el carrito. Al hacer click ejecuta vaciarCarrito() -->
-                <button onclick="vaciarCarrito()"class="btn btn-danger btn-lg">Vaciar Carrito</button>
-            
+                    <h3 class="text-primary">
+                        Total: <span id="total" class="fw-bold">0.00</span>€
+                    </h3>
+                    <div class="text-end mt-3">
+                        <!-- Botón para vaciar todo el carrito. Al hacer click ejecuta vaciarCarrito() -->
+                        <button onclick="vaciarCarrito()" class="btn btn-danger btn-lg">
+                            Vaciar Carrito
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <script>
         // Array con todos los productos disponibles en la tienda
         // Cada producto tiene: id único, nombre, precio, categoría y stock disponible
         const productos = [
-            { id: 1, nombre: "Laptop HP", precio: 599.99, categoria: "electronica", stock: 5,  imagen:"https://images.unsplash.com/photo-1693206816304-642a705045a1?w400&h300&fit=crop"},
-            { id: 2, nombre: "Mouse Inalámbrico", precio: 19.99, categoria: "electronica", stock: 15,  imagen:"https://images.unsplash.com/photo-1605773527852-c546a8584ea3?w400&h300&fit=crop"},
-            { id: 3, nombre: "Teclado Mecánico", precio: 79.99, categoria: "electronica", stock: 8 },
-            { id: 4, nombre: "Camiseta Básica", precio: 12.99, categoria: "ropa", stock: 25 },
-            { id: 5, nombre: "Pantalón Vaquero", precio: 39.99, categoria: "ropa", stock: 12 },
-            { id: 6, nombre: "Zapatillas Deportivas", precio: 65.00, categoria: "ropa", stock: 10 },
-            { id: 7, nombre: "Lámpara LED", precio: 24.99, categoria: "hogar", stock: 20 },
-            { id: 8, nombre: "Cojín Decorativo", precio: 15.50, categoria: "hogar", stock: 30 },
-            { id: 9, nombre: "Reloj de Pared", precio: 32.00, categoria: "hogar", stock: 7 }
+            {
+                id: 1,
+                nombre: "Laptop HP",
+                precio: 599.99,
+                categoria: "electronica",
+                stock: 5,
+                imagen:
+                    "https://images.unsplash.com/photo-1693206816304-642a705045a1?w400&h300&fit=crop",
+            },
+            {
+                id: 2,
+                nombre: "Mouse Inalámbrico",
+                precio: 19.99,
+                categoria: "electronica",
+                stock: 15,
+                imagen:
+                    "https://images.unsplash.com/photo-1605773527852-c546a8584ea3?w400&h300&fit=crop",
+            },
+            {
+                id: 3,
+                nombre: "Teclado Mecánico",
+                precio: 79.99,
+                categoria: "electronica",
+                stock: 8,
+                imagen:
+                    "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w400&h300&fit=crop",
+            },
+            {
+                id: 4,
+                nombre: "Camiseta Básica",
+                precio: 12.99,
+                categoria: "ropa",
+                stock: 25,
+                imagen:
+                    "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w400&h300&fit=crop",
+            },
+            {
+                id: 5,
+                nombre: "Pantalón Vaquero",
+                precio: 39.99,
+                categoria: "ropa",
+                stock: 12,
+                imagen:
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w400&h300&fit=crop",
+            },
+            {
+                id: 6,
+                nombre: "Zapatillas Deportivas",
+                precio: 65.0,
+                categoria: "ropa",
+                stock: 10,
+                imagen:
+                    "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w400&h300&fit=crop",
+            },
+            {
+                id: 7,
+                nombre: "Lámpara LED",
+                precio: 24.99,
+                categoria: "hogar",
+                stock: 20,
+                imagen:
+                    "https://images.unsplash.com/photo-1625810057809-9f596a69b975?w400&h300&fit=crop",
+            },
+            {
+                id: 8,
+                nombre: "Cojín Decorativo",
+                precio: 15.5,
+                categoria: "hogar",
+                stock: 30,
+                imagen:
+                    "https://images.unsplash.com/photo-1531877025030-f7696a50770f?w400&h300&fit=crop",
+            },
+            {
+                id: 9,
+                nombre: "Reloj de Pared",
+                precio: 32.0,
+                categoria: "hogar",
+                stock: 7,
+                imagen:
+                    "https://images.unsplash.com/photo-1527454743534-ba93f2148eb0?w400&h300&fit=crop",
+            },
         ];
 
         // Array que almacena los productos que el usuario ha agregado al carrito
@@ -100,36 +182,44 @@
         // Función que recibe una lista de productos y los muestra en la página
         function mostrarProductos(listaProductos) {
             // Obtiene el contenedor donde se mostrarán los productos
-            const contenedor = document.getElementById('productos');
+            const contenedor = document.getElementById("productos");
 
             // Limpia el contenedor para evitar duplicados
-            contenedor.innerHTML = '';
+            contenedor.innerHTML = "";
 
             // Recorre cada producto de la lista recibida
-            listaProductos.forEach(producto => {
+            listaProductos.forEach((producto) => {
                 // Crea un nuevo elemento div para cada producto
-                const div = document.createElement('div');
+                const div = document.createElement("div");
 
                 // Aplica estilos inline al div (borde, padding, margen)
-                div.style.border = '1px solid #ccc';
-                div.style.padding = '10px';
-                div.style.margin = '10px 0';
+                /* div.style.border = "1px solid #ccc";
+                 div.style.padding = "10px";
+                 div.style.margin = "10px 0";*/
+
+                div.className = 'col-md-4 mb-4'
 
                 // Inserta el HTML con la información del producto
                 // toFixed(2) redondea el precio a 2 decimales
                 // El botón tiene onclick que ejecuta agregarAlCarrito con el id del producto
+                //el card de boostrar con imagen, titulo, texto y botón
                 div.innerHTML = `
-                    <img src= "${producto.imagen}" style="height:200px; object-fit:cover;" alt="${producto.nombre}">
-                    <h3>${producto.nombre}</h3>
-                    <p class="text-success"><strong>Precio:</strong> ${producto.precio.toFixed(2)}€</p>
-                    <p><strong>Categoría:</strong> ${producto.categoria}</p>
-                    <p><strong>Stock disponible:</strong> ${producto.stock} unidades</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito(${producto.id})">🛒 Agregar al Carrito</button>
+                    <div class="card h-100 shadow-sm">
+                    <img src= "${producto.imagen}" class="card-img-top" style="height:200px; object-fit:cover;" alt="${producto.nombre}">
+                    <div class="card-body">
+                    <h5 class="card-tittle text-primary">${producto.nombre}</h5>
+                    <h4 class="text-success fw-bold">${producto.precio.toFixed(2)}€ </h4>
+                    <p class="card-text"><span class="badge bg-secondary">${producto.categoria}</span></p>
+                    <p class="card-text"><small class="text-muted">Stock: ${producto.stock} unidades</small></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                    <button class="btn btn-primary w-100" onclick="agregarAlCarrito(${producto.id})">🛒 Agregar al Carrito</button>
+                    </div>
+                    </div>
                 `;
 
-
                 // Añade el div creado al contenedor principal
-                // appendChild() es un método de JavaScript que se utiliza en el DOM (Document Object Model) para agregar un nuevo nodo como el último hijo de un elemento padre existente. Si el nodo que se intenta agregar ya tiene un padre, este método lo eliminará de su padre anterior y lo moverá al nuevo elemento padre. 
+                // appendChild() es un método de JavaScript que se utiliza en el DOM (Document Object Model) para agregar un nuevo nodo como el último hijo de un elemento padre existente. Si el nodo que se intenta agregar ya tiene un padre, este método lo eliminará de su padre anterior y lo moverá al nuevo elemento padre.
                 contenedor.appendChild(div);
             });
         }
@@ -137,15 +227,17 @@
         // Función que filtra los productos según la categoría seleccionada
         function filtrarProductos() {
             // Obtiene el valor seleccionado en el menú desplegable
-            const filtro = document.getElementById('filtroCategoria').value;
+            const filtro = document.getElementById("filtroCategoria").value;
 
             // Si el filtro es "todos", muestra todos los productos
-            if (filtro === 'todos') {
+            if (filtro === "todos") {
                 mostrarProductos(productos);
             } else {
                 // Si no, filtra el array de productos por la categoría seleccionada
                 // filter() crea un nuevo array solo con los productos que cumplen la condición
-                const productosFiltrados = productos.filter(p => p.categoria === filtro);
+                const productosFiltrados = productos.filter(
+                    (p) => p.categoria === filtro
+                );
 
                 // Muestra solo los productos filtrados
                 mostrarProductos(productosFiltrados);
@@ -156,13 +248,13 @@
         function agregarAlCarrito(id) {
             // Busca el producto en el array de productos usando su id
             // find() devuelve el primer elemento que cumple la condición
-            const producto = productos.find(p => p.id === id);
+            const producto = productos.find((p) => p.id === id);
 
             // Si no encuentra el producto, termina la función
             if (!producto) return;
 
             // Busca si el producto ya existe en el carrito
-            const itemCarrito = carrito.find(item => item.id === id);
+            const itemCarrito = carrito.find((item) => item.id === id);
 
             // Si el producto ya está en el carrito
             if (itemCarrito) {
@@ -172,7 +264,7 @@
                     itemCarrito.cantidad++;
                 } else {
                     // Si no hay más stock, muestra un mensaje de alerta
-                    alert('No hay más stock disponible');
+                    alert("No hay más stock disponible");
                     return; // Termina la función sin agregar más
                 }
             } else {
@@ -182,7 +274,7 @@
                     id: producto.id,
                     nombre: producto.nombre,
                     precio: producto.precio,
-                    cantidad: 1 // Inicia con cantidad 1
+                    cantidad: 1, // Inicia con cantidad 1
                 });
             }
 
@@ -193,32 +285,46 @@
         // Función que actualiza la vista del carrito de compras
         function actualizarCarrito() {
             // Obtiene el contenedor del carrito
-            const contenedor = document.getElementById('carrito');
+            const contenedor = document.getElementById("carrito");
 
             // Limpia el contenedor
-            contenedor.innerHTML = '';
+            contenedor.innerHTML = "";
 
             // Si el carrito está vacío
             if (carrito.length === 0) {
                 // Muestra mensaje de carrito vacío
-                contenedor.innerHTML = '<p>El carrito está vacío</p>';
+                contenedor.innerHTML = '<div class="alert alert-info text-center">El carrito está vacío</div>';
 
                 // Establece el total en 0.00
-                document.getElementById('total').textContent = '0.00';
+                document.getElementById("total").textContent = "0.00";
                 return; // Termina la función
             }
 
             // Variable para acumular el total de la compra
             let total = 0;
 
+            //Crear una tabla de bootstrap para mostrar los items del carrito
+            let tablaHTML = `
+            <table class="table table-hover">
+                <thead class="table light">
+                    <tr>
+                        <th>Productos</th>
+                        <th class= "text-center">Precio unit.</th>
+                        <th class= "text-center">Cantidad</th>
+                        <th class= "text-end">Subtotal</th>
+                        <th class= "text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                `;
             // Recorre cada item del carrito
-            carrito.forEach(item => {
+            carrito.forEach((item) => {
                 // Crea un div para cada producto en el carrito
-                const div = document.createElement('div');
+                //const div = document.createElement("div");
 
                 // Aplica estilos al div
-                div.style.borderBottom = '1px solid #eee';
-                div.style.padding = '5px 0';
+                /*div.style.borderBottom = "1px solid #eee";
+                div.style.padding = "5px 0";*/
 
                 // Calcula el subtotal (precio × cantidad)
                 const subtotal = item.precio * item.cantidad;
@@ -228,26 +334,42 @@
 
                 // Inserta el HTML con la información del item
                 // Incluye botón para eliminar con onclick que ejecuta eliminarDelCarrito
-                div.innerHTML = `
+                /*div.innerHTML = `
                     <strong>${item.nombre}</strong> - 
                     ${item.precio.toFixed(2)}€ x ${item.cantidad} = 
                     ${subtotal.toFixed(2)}€
-                    <button onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
-                `;
+                    <button onclick="eliminarDelCarrito(${item.id
+                    })">Eliminar</button>
+                `;*/
 
+                //agregar una fila a la tabla para cada producto
+                tablaHTML += `
+                <tr>
+                    <td class= "fw-bold">${item.nombre}</td>
+                    <td class="text-center">${item.precio}€</td>
+                    <td class="text-center"><span class="badge bg-primary">${item.cantidad}</span></td>
+                    <td class="text-end fw-bold">${item.subtotal}€</td>
+                    <td class="text-center"><button onclick="eliminarDelCarrito(${item.id})" class="btn btn-sm btn-danger" >Eliminar</button>"></td>
+                </tr>
+                `
                 // Añade el div al contenedor del carrito
-                contenedor.appendChild(div);
+                //contenedor.appendChild(div);
             });
+            //cerrar la tabla
+            tablaHTML += `   
+            </tbody>
+            </table>
+            `;
 
             // Actualiza el elemento que muestra el total con el valor calculado
-            document.getElementById('total').textContent = total.toFixed(2);
+            document.getElementById("total").textContent = total.toFixed(2);
         }
 
         // Función que elimina un producto específico del carrito
         function eliminarDelCarrito(id) {
             // filter() crea un nuevo array excluyendo el item con el id especificado
             // Mantiene todos los items cuyo id sea diferente al recibido
-            carrito = carrito.filter(item => item.id !== id);
+            carrito = carrito.filter((item) => item.id !== id);
 
             // Actualiza la vista del carrito
             actualizarCarrito();
@@ -259,7 +381,7 @@
             if (carrito.length > 0) {
                 // Muestra un cuadro de confirmación al usuario
                 // confirm() devuelve true si el usuario acepta, false si cancela
-                if (confirm('¿Estás seguro de vaciar el carrito?')) {
+                if (confirm("¿Estás seguro de vaciar el carrito?")) {
                     // Vacía el array del carrito asignándole un array vacío
                     carrito = [];
 
