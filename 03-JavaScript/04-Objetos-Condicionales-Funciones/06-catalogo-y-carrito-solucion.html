@@ -346,10 +346,10 @@
                 tablaHTML += `
                 <tr>
                     <td class= "fw-bold">${item.nombre}</td>
-                    <td class="text-center">${item.precio}€</td>
+                    <td class="text-center">${item.precio.toFixed(2)}€</td>
                     <td class="text-center"><span class="badge bg-primary">${item.cantidad}</span></td>
-                    <td class="text-end fw-bold">${item.subtotal}€</td>
-                    <td class="text-center"><button onclick="eliminarDelCarrito(${item.id})" class="btn btn-sm btn-danger" >Eliminar</button>"></td>
+                    <td class="text-end fw-bold">${subtotal.toFixed(2)}€</td>
+                    <td class="text-center"><button onclick="eliminarDelCarrito(${item.id})" class="btn btn-sm btn-danger" >Eliminar</button></td>
                 </tr>
                 `
                 // Añade el div al contenedor del carrito
@@ -360,6 +360,7 @@
             </tbody>
             </table>
             `;
+            contenedor.innerHTML= tablaHTML;
 
             // Actualiza el elemento que muestra el total con el valor calculado
             document.getElementById("total").textContent = total.toFixed(2);
