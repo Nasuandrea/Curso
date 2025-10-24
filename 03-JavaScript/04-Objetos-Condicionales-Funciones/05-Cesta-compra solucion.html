@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Arrays: Lista de Compras</title>
+   <!--Bootstrap-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" />
+</head>
+
+<body class="container text-bg-dark p-3">
+   <div class="container w-100">
+      <h1 class="text-center text-primary p-4">Gestión de Lista de Compras</h1>
+      <div id="divOperacionesArrays" class="border border-primary mb-3 rounded">
+      <h2 class="m-2 p-2">Operaciones con Arrays</h2>
+      <div id="divBtn" class="d-flex justify-content-center mx-auto pb-2 mb-3">
+         <button class="btn btn-outline-primary m-2 p-lg-2" onclick="mostrarCompras()">Mostrar Lista de Compras</button>
+         <!-- Botón que al hacer clic ejecuta la función mostrarCompras() -->
+
+         <button class="btn btn-outline-primary m-2 p-lg-2" onclick="agregarProducto()">Agregar Producto</button>
+         <!-- Botón que al hacer clic ejecuta la función agregarProducto() -->
+
+         <button class="btn btn-outline-primary m-2 p-lg-2" onclick="eliminarUltimo()">Eliminar Último Producto</button>
+         <!-- Botón que al hacer clic ejecuta la función eliminarUltimo() -->
+
+         <button class="btn btn-outline-primary m-2 p-lg-2" onclick="contarProductos()">Contar Productos</button>
+         <!-- Botón que al hacer clic ejecuta la función contarProductos() -->
+
+      </div>
+   </div>
+      <div id="resultado" class="border border-primary mb-3 rounded p-3 "></div>
+      <!-- Contenedor div con identificador 'resultado' donde se mostrarán los mensajes y resultados -->
+   </div>
+   <script>
+      <!-- Inicio del bloque de código JavaScript -->
+
+      // Array inicial de compras
+      // Comentario de una línea explicando el propósito de la siguiente línea
+
+      let compras = ["pan", "leche", "huevos", "azúcar"];
+      /* Declaración de una variable 'compras' usando 'let' (alcance de bloque)
+         Se inicializa como un array con 4 elementos tipo string
+         Índices: pan(0), leche(1), huevos(2), azúcar(3) */
+
+      function mostrarCompras() {
+         /* Declaración de función sin parámetros que muestra el contenido del array
+            Se ejecuta cuando el usuario hace clic en el botón correspondiente */
+
+         // Mostrar todo el array
+         // Comentario explicativo de lo que hace el siguiente bloque
+
+         document.getElementById('resultado').innerHTML =
+            /* document: objeto global que representa la página web
+               getElementById('resultado'): busca el elemento HTML con id="resultado"
+               .innerHTML: propiedad que permite modificar el contenido HTML interno
+               El operador = asigna el nuevo contenido HTML que se construye abajo */
+            '<table class="table">'+
+               '<thead>'+
+                  '<tr>Lista de compras</tr>'+
+                  '</thead>'+
+                  '<tbody>'+
+                     '<tr><th scope="row">Array completo</th><td>Mark</td><td>Otto</td><td>@mdo</td></tr><tr><th scope="row">2</th><td>Jacob</td><td>Thornton</td><td>@fat</td></tr><tr><th scope="row">3</th><td colspan="2">Larry the Bird</td><td>@twitter</td></tr></tbody></table>' 
+            
+            
+            
+            
+            "<h3>Lista de Compras:</h3>" +
+            /* Crea un encabezado h3. El operador + concatena strings */
+
+            "<p><strong>Array completo:</strong> [" + compras.join(', ') + "]</p>" +
+            /* Crea un párrafo <p> con texto en negrita <strong>
+                  compras.join(', '): método que une todos los elementos del array en un string
+                  separándolos con ', ' (coma y espacio) */
+
+            "<p><strong>Primer producto:</strong> " + compras[0] + " (índice 0)</p>" +
+            /* compras[0]: accede al primer elemento del array (índice 0) */
+
+            "<p><strong>Segundo producto:</strong> " + compras[1] + " (índice 1)</p>";
+         /* compras[1]: accede al segundo elemento del array (índice 1) */
+      }
+
+      function agregarProducto() {
+         /* Función que permite añadir un nuevo producto al final del array */
+
+         // Añadir producto al final del array
+         // Comentario descriptivo
+
+         let nuevoProducto = prompt("Ingresa el nombre del producto:");
+         /* prompt(): función del navegador que muestra una ventana emergente
+         con un campo de texto para que el usuario ingrese información
+         El valor ingresado se guarda en la variable nuevoProducto
+         Si el usuario cancela, devuelve null */
+
+         if (nuevoProducto) {
+            /* Condicional if: verifica si nuevoProducto tiene un valor válido
+            (no es null, undefined, cadena vacía, 0, false)
+            Si es true, ejecuta el bloque de código entre llaves */
+
+            compras.push(nuevoProducto);
+            /* .push(): método de arrays que añade un elemento al final del array
+            Modifica el array original incrementando su longitud en 1 */
+
+            document.getElementById('resultado').innerHTML =
+               /* Actualiza el contenido del div 'resultado' */
+
+               "<p>✅ Producto agregado: <strong>" + nuevoProducto + "</strong></p>" +
+               /* Muestra un mensaje con emoji ✅ y el nombre del producto agregado */
+
+               "<p>Nueva lista: [" + compras.join(', ') + "]</p>";
+            /* Muestra la lista actualizada con todos los productos */
+         }
+      }
+
+      function eliminarUltimo() {
+         /* Función que elimina el último producto del array */
+
+         // Eliminar último producto del array
+         // Comentario descriptivo
+
+         if (compras.length > 0) {
+            /* Condicional que verifica si el array tiene elementos
+            .length: propiedad que devuelve el número de elementos en el array
+            Si es mayor que 0, hay elementos para eliminar */
+
+            let productoEliminado = compras.pop();
+            /* .pop(): método que elimina y devuelve el último elemento del array
+            Reduce la longitud del array en 1
+            El elemento eliminado se guarda en productoEliminado */
+
+            document.getElementById('resultado').innerHTML =
+               /* Actualiza el contenido del div 'resultado' */
+
+               "<p>❌ Producto eliminado: <strong>" + productoEliminado + "</strong></p>" +
+               /* Muestra mensaje con emoji ❌ y el nombre del producto eliminado */
+
+               "<p>Lista actual: [" + compras.join(', ') + "]</p>";
+            /* Muestra la lista actualizada después de la eliminación */
+
+         } else {
+            /* Bloque else: se ejecuta si la condición del if es falsa
+            Es decir, cuando el array está vacío (length = 0) */
+
+            document.getElementById('resultado').innerHTML =
+               "<p>La lista de compras está vacía</p>";
+            /* Informa al usuario que no hay productos para eliminar */
+         }
+      }
+
+      function contarProductos() {
+         /* Función que muestra la cantidad total de productos en el array */
+
+         // Mostrar cantidad de productos
+         // Comentario descriptivo
+
+         document.getElementById('resultado').innerHTML =
+            /* Actualiza el contenido del div 'resultado' */
+
+            "<p>📊 <strong>Total de productos:</strong> " + compras.length + "</p>" +
+            /* Muestra emoji 📊 y el número total de elementos usando .length */
+
+            "<p>Lista: [" + compras.join(', ') + "]</p>";
+         /* Muestra la lista completa de productos */
+      }
+
+      // Mostrar lista inicial
+      // Comentario explicativo
+
+      mostrarCompras();
+      /* Llamada a la función mostrarCompras() que se ejecuta automáticamente
+      al cargar la página, mostrando la lista inicial de productos */
+
+   </script>
+   <!-- Fin del bloque de código JavaScript -->
+
+</body>
+
+
+
+
+</html>
