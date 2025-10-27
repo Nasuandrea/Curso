@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de música</title>
+    <!--Para que funcione bootstrap, font-awesome, y los estilos de css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+   
+</head>
+
+<body>
+    <!--Contenido principal que son Cards-->
+    <!--Esta clase es PROPIA , no es de BootStrap-->
+    <div class="main-content">
+        <section>
+            <h2 class="section-title"> Lista de canciones </h2>
+            <div class="card-grid" id="mainGrid">
+                <!--aqui se generan las cards dinámicamente-->
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title"> Escuchadas recientemente </h2>
+            <div class="card-grid" id="recentGrid">
+                <!--aqui se generan las cards de las canciones recientes dinámicamente-->
+            </div>
+        </section>
+    </div> 
+    <script src="js/script-canciones-js"></script>
+</body>
+
+</html>
