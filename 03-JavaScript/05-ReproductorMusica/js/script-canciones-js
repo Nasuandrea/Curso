@@ -1,50 +1,55 @@
 //canciones iniciales
 const songs = [
-    {id: 1,
-    title: "Everlong" ,
+  {
+    id: 1,
+    title: "Everlong",
     artist: "Foo Fighters",
     duration: 200,
     caratula: "img/Foo Fighters - The Colour and the Shape.jpg",
-    src: "mp3/Everlong.mp3"
-    },
-    {id: 2,
-    title: "Save your tears" ,
+    src: "mp3/Everlong.mp3",
+  },
+  {
+    id: 2,
+    title: "Save your tears",
     artist: "The Weeknd",
     duration: 290,
     caratula: "img/The Weeknd - After Hours.jpg",
-    src: "mp3/The Weeknd - Save Your Tears.mp3"
-    },
-    {id: 3,
-    title: "You Only Live Once" ,
+    src: "mp3/The Weeknd - Save Your Tears.mp3",
+  },
+  {
+    id: 3,
+    title: "You Only Live Once",
     artist: "The Strokes",
     duration: 290,
     caratula: "img/FIOEstrokes.jpg",
-    src: "mp3/The Strokes - You Only Live Once.mp3"
-    },
-    {id: 4,
-    title: "Say It Ain't So" ,
+    src: "mp3/The Strokes - You Only Live Once.mp3",
+  },
+  {
+    id: 4,
+    title: "Say It Ain't So",
     artist: "Weezer",
     duration: 290,
     caratula: "img/Weezer-Blue_Album.png",
-    src: "mp3/Weezer - Say It Ain't So.mp3"
-    }
-]
+    src: "mp3/Weezer - Say It Ain't So.mp3",
+  },
+];
 
 //canciones recientes
 const recentSongs = [
-    {id: 2,
-    title: "Save your tears" ,
+  {
+    id: 2,
+    title: "Save your tears",
     artist: "The Weeknd",
     duration: 290,
     caratula: "img/The Weeknd - After Hours.jpg",
-    src: "mp3/The Weeknd - Save Your Tears.mp3"
-    }
-]
+    src: "mp3/The Weeknd - Save Your Tears.mp3",
+  },
+];
 
 //Estado del reproductor
 let currentSong = null;
 let isPlaying = false;
-let currentTime= 0;
+let currentTime = 0;
 let duration = 0;
 let volume = 0.7;
 let isSuffle = false;
@@ -52,10 +57,10 @@ let isRepeat = false;
 let playInterval = null;
 
 //tarjeta donde se ve la canción -- manejar el HTML DOM
-function createCard(song, containerId){
-const card = document.createElement('div');
-card.className = 'card';
-card.innerHTML = `
+function createCard(song, containerId) {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
 <div class="card-image" style="background-image: url('${song.caratula}')"> 
     <div class="play-button" onClick="playSong('${song.id}')"> 
         <i class="fa-solid fa-play"></i>
@@ -64,87 +69,96 @@ card.innerHTML = `
 <div class="card-title">${song.title}</div>
 <div class="card-subtitle">${song.artist}</div>
 `;
-//Donde tiene que crear esta tarjeta:
-document.getElementById(containerId).appendChild(card);
+  //Donde tiene que crear esta tarjeta:
+  document.getElementById(containerId).appendChild(card);
 }
-songs.forEach(song => createCard(song, 'mainGrid'));
-recentSongs.forEach(song => createCard(song, 'recentGrid'));
+songs.forEach((song) => createCard(song, "mainGrid"));
+recentSongs.forEach((song) => createCard(song, "recentGrid"));
 
 //Funcion de reproductor
 
-
-function playSong(id){
-    // ... -> operador desempaquetador -> desempaqueta el array songs y el array recentSongs
-// Los tres puntos se llama "spread operator" y "desempaqueta" los arrays para unirlos
-const allSongs = [...songs,...recentSongs];
-//busca la cancion que tenga el id que pedimos
-//find() recorre el array hasta encontrar el id(cancion)
-//s => s.id === id funcion flecha que compara cada cancion
-const song = allSongs.find(s=>s.id === id);
-//Si no encuentra la cancion, sale de la funcion
-//! significa "no existe" o "es falso"
-if(!song) return;
-// pausa la cancion
-//?. es "optional chaining" - si currentSong no existe
-if(currentSong?.id === id){
+function playSong(id) {
+  // ... -> operador desempaquetador -> desempaqueta el array songs y el array recentSongs
+  // Los tres puntos se llama "spread operator" y "desempaqueta" los arrays para unirlos
+  const allSongs = [...songs, ...recentSongs];
+  //busca la cancion que tenga el id que pedimos
+  //find() recorre el array hasta encontrar el id(cancion)
+  //s => s.id === id funcion flecha que compara cada cancion
+  const song = allSongs.find((s) => s.id === id);
+  //Si no encuentra la cancion, sale de la funcion
+  //! significa "no existe" o "es falso"
+  if (!song) return;
+  // pausa la cancion
+  //?. es "optional chaining" - si currentSong no existe
+  if (currentSong?.id === id) {
     pausePlayback();
     return;
-}
-//Prepara una nueva canción, guarda la cancion actual, guarda cuanto dura la canción, pone el tiempo actual en 0(empieza desde el principio)
-currentSong = song;
-duration = song.duration;
-currentTime = 0;
+  }
+  //Prepara una nueva canción, guarda la cancion actual, guarda cuanto dura la canción, pone el tiempo actual en 0(empieza desde el principio)
+  currentSong = song;
+  duration = song.duration;
+  currentTime = 0;
 
-//Actualiza lo que ve el usuario (titulo, artista, imagen)
-//Empieza a reproducti la cancion
-updatePlayerUI();
-startPlayback();
+  //Actualiza lo que ve el usuario (titulo, artista, imagen)
+  //Empieza a reproducti la cancion
+  updatePlayerUI();
+  startPlayback();
 }
 
 //Funcion actualizar la interface
-function updatePlayerUI(){
-    //Si no hay canción seleccionada, no hace nada
-    if(!currentSong) return;
-    //Busca el elemento html con id playerTitle y le pone el titulo de la cancion 
-    document.getElementById('playerTitle').textContent = currentSong.title;
-    document.getElementById('playerArtist').textContent = currentSong.artist;
-    document.getElementById('playerImage').textContent = currentSong.caratula;
-    document.getElementById('totalTime').textContent = formatTime(duration);
+function updatePlayerUI() {
+  //Si no hay canción seleccionada, no hace nada
+  if (!currentSong) return;
+  //Busca el elemento html con id playerTitle y le pone el titulo de la cancion
+  document.getElementById("playerTitle").textContent = currentSong.title;
+  document.getElementById("playerArtist").textContent = currentSong.artist;
+  document.getElementById("playerImage").textContent = currentSong.caratula;
+  document.getElementById("totalTime").textContent = formatTime(duration);
 }
 
 // Función para empezar a reproducir
-function startPlayback(){
-    isPlaying=true;
-    //busca el elemento y cambia el css para mostrar un icono de pausa en vez del play
-    document.querySelector('#playPauseBtn i').className = 'fa fa-pause';
+function startPlayback() {
+  isPlaying = true;
+  //busca el elemento y cambia el css para mostrar un icono de pausa en vez del play
+  document.querySelector("#playPauseBtn i").className = "fa fa-pause";
 
-    //Si hay un temporizador anterior, lo detiene (para evitar duplicados) y comienza a reproducir la cancion clickada
-    if(playInterval)clearInterval(playInterval);
-    //crea un temporizador que se ejecuta cada segundo
-    playInterval = setInterval(()=>{
-        //sunma un segundo al tiempo actual
-        currentTime++;
-        //actualiza la barra de progreso
-        updateProgress();
+  //Si hay un temporizador anterior, lo detiene (para evitar duplicados) y comienza a reproducir la cancion clickada
+  if (playInterval) clearInterval(playInterval);
+  //crea un temporizador que se ejecuta cada segundo
+  playInterval = setInterval(() => {
+    //sunma un segundo al tiempo actual
+    currentTime++;
+    //actualiza la barra de progreso
+    updateProgress();
 
-        //si la cancion termnina
-        if (currentTime >= duration){
-            if (isRepeat){
-                currentSong=0;
-            }else{
-                nextSong();
-            }
-        }
-
-    },1000);
+    //si la cancion termnina
+    if (currentTime >= duration) {
+      if (isRepeat) {
+        currentSong = 0;
+      } else {
+        nextSong();
+      }
+    }
+  }, 1000);
 }
 
-function pausePlayback(){
-    //marcfa que no esta sonando
-    isPlaying = false;
-    //cambia el icono a play
-    document.querySelector('#playPauseBtn i').className = 'fa fa-play';
-    // detiene el temporizador
-    if(playInterval)clearInterval(playInterval);
-
+function pausePlayback() {
+  //marcfa que no esta sonando
+  isPlaying = false;
+  //cambia el icono a play
+  document.querySelector("#playPauseBtn i").className = "fa fa-play";
+  // detiene el temporizador
+  if (playInterval) clearInterval(playInterval);
 }
+
+//Funcion para la barra de progreso
+function updateProgress() {
+  // Porcentaje de la cancion que esta sonando... ejemplo: si van 30 seg de 60 es 50%
+  const progress = (currentTime / duration) * 100;
+  // Ajusta el ancho de la barra de progreso a ese porcentaje
+  document.getElementById("progressBarFill").style.width = progress + "%";
+  // Muestra el tiempo actual en formato minutos:segundos
+  document.getElementById("currentTime").textContent = formatTime(currentTime);
+}
+
+
