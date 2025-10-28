@@ -2,7 +2,7 @@
     --bg-dark: #121212;
     --bg-secondary: #181818;
     --bg-hover: #282828;
-    --text-primary: #ffffff;
+    --text-primary: rgb(132, 57, 245);
     --text-secondary: #dbd6d6b2;
     --accent: #1db954;
     --accent-hover: #93d71e;
@@ -26,6 +26,55 @@ body{
     height: calc(100vh - 90px);
 }
 
+/* Sidebar */
+.sidebar{
+    width: 240px;
+    background-color: #000;
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/*Logo*/
+.logo{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 0 12px;
+    margin-bottom: 18px;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    color:var(--text-primary);
+    background-color: var(--bg-hover);
+}
+
+.nav-item:active{
+    color: var(--text-primary);
+}
+
+.nav-item i{
+    font-size: 24px;
+    width: 24px;
+}
+
+.playlists{
+    margin-top: 24px;
+    flex: 1;
+    overflow: auto;
+}
 /* Main content */
 .main-content{
     flex: 1;
