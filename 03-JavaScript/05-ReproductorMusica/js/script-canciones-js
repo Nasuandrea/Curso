@@ -69,3 +69,82 @@ document.getElementById(containerId).appendChild(card);
 }
 songs.forEach(song => createCard(song, 'mainGrid'));
 recentSongs.forEach(song => createCard(song, 'recentGrid'));
+
+//Funcion de reproductor
+
+
+function playSong(id){
+    // ... -> operador desempaquetador -> desempaqueta el array songs y el array recentSongs
+// Los tres puntos se llama "spread operator" y "desempaqueta" los arrays para unirlos
+const allSongs = [...songs,...recentSongs];
+//busca la cancion que tenga el id que pedimos
+//find() recorre el array hasta encontrar el id(cancion)
+//s => s.id === id funcion flecha que compara cada cancion
+const song = allSongs.find(s=>s.id === id);
+//Si no encuentra la cancion, sale de la funcion
+//! significa "no existe" o "es falso"
+if(!song) return;
+// pausa la cancion
+//?. es "optional chaining" - si currentSong no existe
+if(currentSong?.id === id){
+    pausePlayback();
+    return;
+}
+//Prepara una nueva canción, guarda la cancion actual, guarda cuanto dura la canción, pone el tiempo actual en 0(empieza desde el principio)
+currentSong = song;
+duration = song.duration;
+currentTime = 0;
+
+//Actualiza lo que ve el usuario (titulo, artista, imagen)
+//Empieza a reproducti la cancion
+updatePlayerUI();
+startPlayback();
+}
+
+//Funcion actualizar la interface
+function updatePlayerUI(){
+    //Si no hay canción seleccionada, no hace nada
+    if(!currentSong) return;
+    //Busca el elemento html con id playerTitle y le pone el titulo de la cancion 
+    document.getElementById('playerTitle').textContent = currentSong.title;
+    document.getElementById('playerArtist').textContent = currentSong.artist;
+    document.getElementById('playerImage').textContent = currentSong.caratula;
+    document.getElementById('totalTime').textContent = formatTime(duration);
+}
+
+// Función para empezar a reproducir
+function startPlayback(){
+    isPlaying=true;
+    //busca el elemento y cambia el css para mostrar un icono de pausa en vez del play
+    document.querySelector('#playPauseBtn i').className = 'fa fa-pause';
+
+    //Si hay un temporizador anterior, lo detiene (para evitar duplicados) y comienza a reproducir la cancion clickada
+    if(playInterval)clearInterval(playInterval);
+    //crea un temporizador que se ejecuta cada segundo
+    playInterval = setInterval(()=>{
+        //sunma un segundo al tiempo actual
+        currentTime++;
+        //actualiza la barra de progreso
+        updateProgress();
+
+        //si la cancion termnina
+        if (currentTime >= duration){
+            if (isRepeat){
+                currentSong=0;
+            }else{
+                nextSong();
+            }
+        }
+
+    },1000);
+}
+
+function pausePlayback(){
+    //marcfa que no esta sonando
+    isPlaying = false;
+    //cambia el icono a play
+    document.querySelector('#playPauseBtn i').className = 'fa fa-play';
+    // detiene el temporizador
+    if(playInterval)clearInterval(playInterval);
+
+}

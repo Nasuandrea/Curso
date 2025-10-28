@@ -1,8 +1,8 @@
-root{
+:root{
     --bg-dark: #121212;
     --bg-secondary: #181818;
     --bg-hover: #282828;
-    --text-prymary: #ffffff;
+    --text-primary: #ffffff;
     --text-secondary: #dbd6d6b2;
     --accent: #1db954;
     --accent-hover: #93d71e;
@@ -11,6 +11,19 @@ root{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* Body */
+body{
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.app-container{
+    display:flex;
+    height: calc(100vh - 90px);
 }
 
 /* Main content */
