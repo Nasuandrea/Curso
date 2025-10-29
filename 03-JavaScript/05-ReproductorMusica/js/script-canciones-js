@@ -161,4 +161,49 @@ function updateProgress() {
   document.getElementById("currentTime").textContent = formatTime(currentTime);
 }
 
+//Funcion que convierta los segundos en formato de tiempo legible
+function formatTime(seconds) {
+  //Math floor redondea a la baja
+  const mins = Math.floor(seconds / 60);
+  // Esto devuelve los segundos restantes usando el módulo % -> devuelve el resto , ej: 125 % 60 = 5 son segundos que nos quedan despues de quitar los 2 minutos
+  const secs = Math.floor(seconds % 60);
+  //secs.toString() convierte el numero secs a texto
+  //padStart(2,'0') asegura que los numeros siempre tengan dos digitos ej 5 -> 05 , 45 -> 45
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
 
+//Pasar a siguiente cancion
+function nextSong() {
+  const allSongs = [...songs, ...recentSongs];
+  //currentIndex guarda posicion de la cancion actual
+  // findIndex busca el array y devuelve posicion
+  // s =>compara cada cancion del array con  el id de la cancion que esta sonando
+  // ?. operador Optional - evita errores
+  let currentIndex = allSongs.findIndex((s) => s.id === currentSong?.id);
+
+  if (isSuffle) {
+    //activo aleatorio
+    //random genera un decimal entre 0 y 2 y lo multiplica por la longitud del array allSongs
+    //floor redondea hacia abajo ese numero ej. Math.random()*10 = 7.3 Math.floor = 7
+    currentIndex = Math.floor(Math.random() * allSongs.length);
+  } else {
+    //si no esta en aleatorio = reproduce en orden
+    currentIndex = (currentIndex + 1) % allSongs.length;
+  }
+  playSong(allSongs[currentIndex].id);
+}
+
+//Volver a cancion anterior
+function prevSong() {
+  // Si pasaron 3 segundos reinicia la canción, actualiza barra de progreso y sal de la función
+  if (currentTime > 3) {
+    currentTime = 0;
+    updateProgress();
+    return;
+  }
+  const allSongs = [...songs, ...recentSongs];
+  let currentIndex = allSongs.findIndex((s) => s.id === currentSong?.id);
+  // Operador ternario : Si estamos en la primera cancion pasa a la ultima, si no pasa a la anterior
+  currentIndex = currentIndex <= 0 ? allSongs.length-1 : currentIndex-1;
+  playSong(allSongs[currentIndex].id);
+}
