@@ -18,7 +18,6 @@
             <div class="logo">
                 <i class="fas fa-music"></i>
             </div>
-
             <a href="#" class="nav-item active">
                 <i class="fas fa-home"></i>
                 <span>Inicio</span>
@@ -40,14 +39,15 @@
                 <span>Canciones Favoritas</span>
             </a>
             <div class="playlists">
-                <div class="playlist-item">Rock clásico</div>
-                <div class="playlist-item">Jazz</div>
-                <div class="playlist-item">Pop</div>
-                <div class="playlist-item">80s</div>
-                <div class="playlist-item">90s</div>
-                <div class="playlist-item">Funk</div>
+                <div class="playlists-item">Rock clásico</div>
+                <div class="playlists-item">Jazz</div>
+                <div class="playlists-item">Pop</div>
+                <div class="playlists-item">80s</div>
+                <div class="playlists-item">90s</div>
+                <div class="playlists-item">Funk</div>
             </div>
-        </div>
+        </div> <!--Fin columna izquierda-->
+
         <!--Contenido principal que son Cards-->
         <!--Esta clase es PROPIA , no es de BootStrap-->
         <div class="main-content">
@@ -65,8 +65,8 @@
                     </div>
                     <span>Usuario</span>
                 </div>
+            </div><!--fin header-->
 
-            </div>
             <section>
                 <h2 class="section-title"> Lista de canciones </h2>
                 <div class="card-grid" id="mainGrid">
@@ -79,8 +79,72 @@
                     <!--aqui se generan las cards de las canciones recientes dinámicamente-->
                 </div>
             </section>
+
+        </div><!--Fin main content-->
+    </div> <!-- fin app container-->
+
+    <!-- Player -->
+    <div class="player">
+
+        <!--parte izquierda-->
+        <div class="player-left">
+            <div class="now-playing-image" id="playerImage"></div>
+            <div class="now-playing-info">
+                <div class="now-playing-title" id="playerTitle">Selecciona una canción</div>
+                <div class="now-playing-artist" id="playerArtist">Artista</div>
+            </div>
+            <button class="control-button">
+                <i class="fa fa-heart"></i>
+            </button>
         </div>
-    </div>
+
+        <!--parte central-->
+        <div class="player-center">
+            <div class="player-controls">
+                <button class="control-button" id="shuffleBtn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="control-button" id="prevBtn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button class="control-button" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="control-button" id="nextBtn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="control-button" id="repeatBtn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <!-- Barra de progreso -->
+            <div class="progress-bar-container">
+                <span class="time" id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <span class="time" id="totalTime">0:00</span>
+            </div>
+        </div> <!--fin parte central-->
+
+        <!-- Parte derecha-->
+        <div class="player-right">
+            <button class="control-button">
+                <i class="fas fa-list"></i>
+            </button>
+            <button class="control-button">
+                <i class="fas fa-desktop"></i>
+            </button>
+            <div class="volume-container">
+                <button class="control-button" id="volumeBtn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-bar" id="volumeBar">
+                    <div class="volume-bar-fill" id="volumeBarFill"></div>
+                </div>
+            </div>
+        </div><!--fin parte derecha-->
+    </div><!--fin player-->
     <script src="js/script-canciones-js"></script>
 </body>
 
