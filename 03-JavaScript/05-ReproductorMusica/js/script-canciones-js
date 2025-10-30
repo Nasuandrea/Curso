@@ -61,8 +61,8 @@ function createCard(song, containerId) {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-<div class="card-image" style="background-image: url('${song.caratula}')"> 
-    <div class="play-button" onClick="playSong('${song.id}')"> 
+<div class="card-image" style="background-image:url('${song.caratula}')">
+  <div class="play-button" onClick="playSong(${song.id})"> 
         <i class="fa-solid fa-play"></i>
     </div>
 </div>
@@ -90,7 +90,7 @@ function playSong(id) {
   if (!song) return;
   // pausa la cancion
   //?. es "optional chaining" - si currentSong no existe
-  if (currentSong?.id === id) {
+  if (currentSong?.id === id && isPlaying) {
     pausePlayback();
     return;
   }
@@ -112,7 +112,7 @@ function updatePlayerUI() {
   //Busca el elemento html con id playerTitle y le pone el titulo de la cancion
   document.getElementById("playerTitle").textContent = currentSong.title;
   document.getElementById("playerArtist").textContent = currentSong.artist;
-  document.getElementById("playerImage").textContent = currentSong.caratula;
+  document.getElementById("playerImage").src = currentSong.caratula;
   document.getElementById("totalTime").textContent = formatTime(duration);
 }
 
@@ -134,7 +134,7 @@ function startPlayback() {
     //si la cancion termnina
     if (currentTime >= duration) {
       if (isRepeat) {
-        currentSong = 0;
+        currentTime = 0;
       } else {
         nextSong();
       }
@@ -213,7 +213,7 @@ boton pausa/play
 Si no hay cancion seleccionada --> reproduce la primera cancion
 Si esta sonando, la pausa
 si esta pausada, la reanuda*/
-document.getElementById('playPauseBtn').addEventListener('click', () => {
+document.getElementById("playPauseBtn").addEventListener("click", () => {
   if (!currentSong) {
     playSong(songs[0].id);
   } else if (isPlaying) {
@@ -221,67 +221,87 @@ document.getElementById('playPauseBtn').addEventListener('click', () => {
   } else {
     startPlayback();
   }
-}); 
+});
 
 /*Boton de siguiente y anterior*/
-document.getElementById('nextBtn').addEventListener('click', nextSong());
+document.getElementById("nextBtn").addEventListener("click", nextSong);
 
-
-document.getElementById('prevBtn').addEventListener('click', prevSong());
+document.getElementById("prevBtn").addEventListener("click", prevSong);
 
 //Boton aleatorio
-//Busca el boton y escuchas el click 
+//Busca el boton y escuchas el click
 //Cambia de color
-document.getElementById('shuffleBtn'.addEventListener('click',()=>{
+document.getElementById("shuffleBtn").addEventListener("click", function (e) {
   //si esta activado, lo desactivo
   isSuffle = !isSuffle;
   //para saber si esta activado o desactivado se cambia el color del boton
-  this.style.color = isSuffle ? ('var(--accent)') : ('var(--text-secondary)');
-}))
+  const btn = e.currentTarget;
+  btn.style.color = isSuffle ? "var(--accent)" : "var(--text-secondary)";
+});
 //Boton repetir
-document.getElementById('repeatBtn').addEventListener('click',()=>{
+document.getElementById("repeatBtn").addEventListener("click", function (e) {
   isRepeat = !isRepeat;
-  this.style.color = isRepeat ? ('var(--accent)') : ('var(--text-secondary)');
-})
+  const btn = e.currentTarget;
+  btn.style.color = isRepeat ? "var(--accent)" : "var(--text-secondary)";
+});
 
 //Barra de progreso - click para mover el tiempo de la cancioncancion
-document.getElementById('progressBar').addEventListener('click', (e)=>{
-  const rect = this.getBoundingClientRect();
+document.getElementById("progressBar").addEventListener("click", (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
   //calcula el porcentaje de cancion
-  const percent = (e.clientX - rect.left)/rect.width;
+  const percent = (e.clientX - rect.left) / rect.width;
   currentTime = percent * duration;
   updateProgress();
 });
 
 //Volumen
-document.getElementById('volumeBar').addEventListener('click', (e)=>{
-  const rect = this.getBoundingClientRect();
-  volume = (e.clientX - rect.left)/width;
+document.getElementById("volumeBar").addEventListener("click", (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  volume = (e.clientX - rect.left) / rect.width;
+  // limitar entre 0 y 1
+  volume = Math.max(0, Math.min(1, volume));
   updateVolume();
-})
+});
 
-function updateVolume(){
-  document.getElementById('volumeBarFill').style.width = (volume * 100) + '%';
-  const volumeIcon= document.querySelector('#volumeBtn i');
-  if(volume === 0){
-    volumeIcon.className = 'fas fa-volume-mute'; 
-    }
-    else if(volume < 0.5){
-    volumeIcon.className = 'fas fa-volume-down';
-    }
-    else{
-      volumeIcon.className = 'fas fa-volume-up';
-    }
+function updateVolume() {
+  document.getElementById("volumeBarFill").style.width = volume * 100 + "%";
+  const volumeIcon = document.querySelector("#volumeBtn i");
+  if (volume === 0) {
+    volumeIcon.className = "fas fa-volume-mute";
+  } else if (volume < 0.5) {
+    volumeIcon.className = "fas fa-volume-down";
+  } else {
+    volumeIcon.className = "fas fa-volume-up";
+  }
 }
 
 //Boton de mute
-document.getElementById('volumeBtn').addEventListener('click', ()=> {
-  if(volume > 0){
-    this.dataset.lastVolume = volume;
+document.getElementById("volumeBtn").addEventListener("click", function (e) {
+  const btn = e.currentTarget;
+  if (volume > 0) {
+    btn.dataset.lastVolume = volume;
     volume = 0;
-  }else{
-    volume = parseFloat(this.dataset.lastVolume) || 0.7;
+  } else {
+    volume = parseFloat(btn.dataset.lastVolume) || 0.7;
   }
   updateVolume();
-})
+});
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  const allSongs = [...songs, ...recentSongs];
+  //filtrar canciones que coincidan con el valor de lo buscado
+  const filtered = allSongs.filter(
+    (song) =>
+      song.title.toLowerCase().includes(searchTerm) ||
+      song.artist.toLowerCase().includes(searchTerm)
+  );
+  if (searchTerm) {
+    document.getElementById("mainGrid").innerHTML = "";
+    filtered.forEach((song) => createCard(song, "mainGrid"));
+  } else {
+    document.getElementById("mainGrid").innerHTML = "";
+    songs.forEach((song) => createCard(song, "mainGrid"));
+  }
+});
+
 updateVolume(); //Para que se ponga el volumen inicial
