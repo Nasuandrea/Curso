@@ -204,6 +204,84 @@ function prevSong() {
   const allSongs = [...songs, ...recentSongs];
   let currentIndex = allSongs.findIndex((s) => s.id === currentSong?.id);
   // Operador ternario : Si estamos en la primera cancion pasa a la ultima, si no pasa a la anterior
-  currentIndex = currentIndex <= 0 ? allSongs.length-1 : currentIndex-1;
+  currentIndex = currentIndex <= 0 ? allSongs.length - 1 : currentIndex - 1;
   playSong(allSongs[currentIndex].id);
 }
+
+/*Llamada de eventos
+boton pausa/play
+Si no hay cancion seleccionada --> reproduce la primera cancion
+Si esta sonando, la pausa
+si esta pausada, la reanuda*/
+document.getElementById('playPauseBtn').addEventListener('click', () => {
+  if (!currentSong) {
+    playSong(songs[0].id);
+  } else if (isPlaying) {
+    pausePlayback();
+  } else {
+    startPlayback();
+  }
+}); 
+
+/*Boton de siguiente y anterior*/
+document.getElementById('nextBtn').addEventListener('click', nextSong());
+
+
+document.getElementById('prevBtn').addEventListener('click', prevSong());
+
+//Boton aleatorio
+//Busca el boton y escuchas el click 
+//Cambia de color
+document.getElementById('shuffleBtn'.addEventListener('click',()=>{
+  //si esta activado, lo desactivo
+  isSuffle = !isSuffle;
+  //para saber si esta activado o desactivado se cambia el color del boton
+  this.style.color = isSuffle ? ('var(--accent)') : ('var(--text-secondary)');
+}))
+//Boton repetir
+document.getElementById('repeatBtn').addEventListener('click',()=>{
+  isRepeat = !isRepeat;
+  this.style.color = isRepeat ? ('var(--accent)') : ('var(--text-secondary)');
+})
+
+//Barra de progreso - click para mover el tiempo de la cancioncancion
+document.getElementById('progressBar').addEventListener('click', (e)=>{
+  const rect = this.getBoundingClientRect();
+  //calcula el porcentaje de cancion
+  const percent = (e.clientX - rect.left)/rect.width;
+  currentTime = percent * duration;
+  updateProgress();
+});
+
+//Volumen
+document.getElementById('volumeBar').addEventListener('click', (e)=>{
+  const rect = this.getBoundingClientRect();
+  volume = (e.clientX - rect.left)/width;
+  updateVolume();
+})
+
+function updateVolume(){
+  document.getElementById('volumeBarFill').style.width = (volume * 100) + '%';
+  const volumeIcon= document.querySelector('#volumeBtn i');
+  if(volume === 0){
+    volumeIcon.className = 'fas fa-volume-mute'; 
+    }
+    else if(volume < 0.5){
+    volumeIcon.className = 'fas fa-volume-down';
+    }
+    else{
+      volumeIcon.className = 'fas fa-volume-up';
+    }
+}
+
+//Boton de mute
+document.getElementById('volumeBtn').addEventListener('click', ()=> {
+  if(volume > 0){
+    this.dataset.lastVolume = volume;
+    volume = 0;
+  }else{
+    volume = parseFloat(this.dataset.lastVolume) || 0.7;
+  }
+  updateVolume();
+})
+updateVolume(); //Para que se ponga el volumen inicial
