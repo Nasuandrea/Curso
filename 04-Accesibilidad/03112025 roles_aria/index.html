@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles Aria</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header role="banner">
+        <h1>Mi Aplicación Accesible</h1>
+        <p>Demostración de roles</p>
+    </header>
+    <nav role="navigation" aria-label="Navegación Principal">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#mapa">Mapa</a></li>
+        </ul>
+    </nav>
+    <main role="main" id="inicio">
+        <h2>Contenido Principal</h2>
+        <!-- Widget de roles -->
+        <section aria-labelledby="widget-titulo"> <!-- Aria secundaria (no es la principal) -->
+            <h3 id="widget-titulo">
+                Componentes Interactivos
+            </h3>
+            <!-- Botón Personalizado -->
+            <div class="custom-button" role="button" tabindex="0" onclick="mostrarAlerta()"
+                onkeypress="if(event.key === 'Enter') mostrarAlerta()">
+                Hacer click aquí <!-- Div con rol de button -->
+            </div>
+            <!-- Botón alerta MUY IMPORTANTE -->
+            <div id="miAlerta" role="alert" aria-live="assertive" class="custom-alert" style="display: none;">
+                ESTO ES UNA ALERTA MUY IMPORTANTE
+            </div>
+            <!-- Barra de progreso -->
+            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="1" aria-valuemax="100"
+                aria-label="Progreso de la tarea">
+                <div class="progress-fill"></div>
+            </div>
+        </section>
+        <!-- Pestañas con roles -->
+        <section aria-labelledby="tabs-title">
+            <h3 id="tabs-title">Sistema de Pestañas</h3>
+            <div class="tab-container">
+                <div role="tablist" aria-label="Secciones del contenido">
+                    <div role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" class="tab" tabindex="0"
+                        onclick="cambiarPestaña(1)" onkeypress="if(event.key === 'Enter')cambiarPestaña(1)">Información
+                    </div>
+                    <div role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" class="tab" tabindex="0"
+                        onclick="cambiarPestaña(2)" onkeypress="if(event.key === 'Enter')cambiarPestaña(2)">
+                        Configuración</div>
+                    <div role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" class="tab" tabindex="0"
+                        onclick="cambiarPestaña(3)" onkeypress="if(event.key === 'Enter')cambiarPestaña(3)">Ayuda</div>
+                </div>
+                <!-- Contenido de las pestañas -->
+                <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" class="tab-panel">
+                    <h2>Información General</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, similique.</p>
+                </div>
+                
+                <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" class="tab-panel" aria-hidden="true">
+                    <h2>Configuración</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, animi!</p>
+                </div>
+                <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" class="tab-panel" aria-hidden="true">
+                    <h2>Ayuda</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolor!</p>
+                </div>
+            </div>
+        </section>
+
+        <!--Actualización dinámica-->
+        <section aria-labelledby="live-region-title">
+            <h3 id="live-region-title"></h3>
+            <!-- al poner status ya sabe que vas a hacer una actualización de ese div, se podria hacer con js también-->
+            <div role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            class="live-region"
+            id="liveRegion">
+                Estado inicial de Sistema
+            </div>
+            <button class="custom-button" onclick="actualizarEstado()">Actualizar estado</button>
+        </section>
+    </main>
+
+<!-- Información adicional -->
+<aside role="complementary" aria-label="Información adicional">
+    <h3>Información adicional</h3>
+    <p>Este contenido es complementario a la información principal de la página</p>
+    <!-- Roles de lista -->
+    <div role="list" aria-label="Características principales">
+        <div role="listitem">Característica 1</div>
+        <div role="listitem">Característica 2</div>
+        <div role="listitem">Característica 3</div>
+    </div>
+</aside>
+
+<!-- Footer con role de contenido -->
+<footer role="contentinfo">
+    <p>&copy; 2025 Mi app</p>
+    <p>Roles Aria</p>
+</footer>
+</body>
+
+</html>

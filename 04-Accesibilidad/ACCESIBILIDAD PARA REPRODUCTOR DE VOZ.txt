@@ -1,0 +1,12 @@
+ACCESIBILIDAD PARA REPRODUCTOR DE VOZ
+SINTAXIS BASICA
+--------------------------------
+
+div
+class="boton"
+onclick="hacerAlgo()"
+role="boton"
+tabindex="0"
+enviar formulario
+/div
+----------------------------------
