@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplos de Accesibilidad</title>
     <style>
-        body{
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background: #f1f1f1;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f1f1f1;
         }
-        section{
-        background: white;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        h2{
-        color:black;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
+
+        h2 {
+            color: black;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
         }
-        button{
-        padding: 10px 20px;
-        font-size: 1em;
-        cursor: pointer;
-        border: 2px solid #3498db;
-        background: #3498db;
-        color: white;
-        border-radius: 4px;
-        margin: 5px;
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            border: 2px solid #3498db;
+            border-radius: 4px;
         }
-        button:hover , button:focus{
+
+        button:hover,
+        button:focus {
             background: #023f67;
             outline: 3px solid #5971b4;
         }
-        .high-contrast{
+
+        .high-contrast {
             background-color: black;
             color: white;
             padding: 15px;
             border-radius: 5px;
         }
+
+        input,
+        select {
+            padding: 8px;
+            margin: 5px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: 3px solid #5971b4;
+            border-color: #349834;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .requerido::after {
+            content: " *";
+            color: red;
+        }
     </style>
 </head>
+
 <body>
+
     <!--Ejemplo 1 Operable - -  Navegacion con el teclado -->
     <section>
         <h2>1. Operable: Navegación por teclado</h2>
@@ -56,7 +90,7 @@
         <button onclick="alert('Boton 3 presionado')">Botón 3</button>
     </section>
 
-        <!--Ejemplo 2 Nivel A - -  Requisitos básicos -->
+    <!--Ejemplo 2 Nivel A - -  Requisitos básicos -->
     <section>
         <h2>2. Nivel A: Texto alternativo </h2>
         <img src="https://picsum.photos/200/200" alt="Imagen de ejemplo" width="200" height="200">
@@ -78,7 +112,57 @@
         <div class="high-contrast">
             <p>Este texto tiene alto contraste: blanco sobre negro</p>
             <p>Cumple con el ratio 4.5:1 requerido</p>
+            <!-- <video src="video.mp4" controls="none"></video> 
+            <p><iframe width="400" height="200" src="https://www.youtube.com/embed/GqTU7qNHcO4"
+                    title="Accesibilidad Web: Tutorial para hacer tu sitio web 100% accesible" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>-->
         </div>
     </section>
+
+    <!-- Ejemplo 5 Campo requerido -->
+    <section>
+        <h2>5. Campo requerido Atributo aria-required</h2>
+        <form onsubmit="return validarFormulario()">
+            <label for="nombre" class="requerido">Nombre</label>
+            <input type="text" name="nombre" id="nombre" aria-required="true" required>
+            <span id="errorNombre" class="error" role="alert"></span>
+            <br> <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Ejemplo 6 Role complementary -->
+    <section>
+        <h2>6 Contenido role = "complementary"</h2>
+        <article role="complementary">
+            <p>Contenido del artículo </p>
+        </article>
+        <aside role="compleplemtary">
+            <h3>Información relacionada</h3>
+            <p>Complementa al artículo principal</p>
+        </aside>
+    </section>
+
+
+    <script>
+        //Ejemplo 5 Campo requerido Atributo aria-required
+        //Ejemplo de validación
+        function validarFormulario(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre");
+            const error = document.getElementById("errorNombre");
+            //Condiciones
+            if (nombre.value === '') {
+                error.textContent = "El nombre es obligatorio"
+                nombre.focus();
+                return false;
+            }
+            error.textContent = '';
+            alert('Formulario enviado')
+            return true;
+        }
+    </script>
 </body>
+
 </html>
