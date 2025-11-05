@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Accesibilidad</title>
+    <style>
+        body{
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #f1f1f1;
+        }
+        section{
+        background: white;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2{
+        color:black;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        }
+        button{
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        border: 2px solid #3498db;
+        background: #3498db;
+        color: white;
+        border-radius: 4px;
+        margin: 5px;
+        }
+        button:hover , button:focus{
+            background: #023f67;
+            outline: 3px solid #5971b4;
+        }
+        .high-contrast{
+            background-color: black;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!--Ejemplo 1 Operable - -  Navegacion con el teclado -->
+    <section>
+        <h2>1. Operable: Navegación por teclado</h2>
+        <p>Prueba a navegar con TAB y SHIFT + Tab</p>
+        <button onclick="alert('Boton 1 presionado')">Botón 1</button>
+        <button onclick="alert('Boton 2 presionado')">Botón 2</button>
+        <button onclick="alert('Boton 3 presionado')">Botón 3</button>
+    </section>
+
+        <!--Ejemplo 2 Nivel A - -  Requisitos básicos -->
+    <section>
+        <h2>2. Nivel A: Texto alternativo </h2>
+        <img src="https://picsum.photos/200/200" alt="Imagen de ejemplo" width="200" height="200">
+        <p>La imagen tiene texto alternativo</p>
+    </section>
+
+    <!--Ejemplo 3 Role main-->
+    <section>
+        <h2> 3. Role main explicativo </h2>
+        <main role="main">
+            <p>Contenido principal</p>
+            <p>Elemento main tiene role="main" para mejorar compatibilidad</p>
+        </main>
+    </section>
+
+    <!-- Ejemplo 4 Contraste 4.5:1-->
+    <section>
+        <h2>4. Contraste 4.5:1</h2>
+        <div class="high-contrast">
+            <p>Este texto tiene alto contraste: blanco sobre negro</p>
+            <p>Cumple con el ratio 4.5:1 requerido</p>
+        </div>
+    </section>
+</body>
+</html>
