@@ -63,7 +63,7 @@
                     <h2>Información General</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, similique.</p>
                 </div>
-                
+
                 <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" class="tab-panel" aria-hidden="true">
                     <h2>Configuración</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, animi!</p>
@@ -79,34 +79,30 @@
         <section aria-labelledby="live-region-title">
             <h3 id="live-region-title"></h3>
             <!-- al poner status ya sabe que vas a hacer una actualización de ese div, se podria hacer con js también-->
-            <div role="status"
-            aria-live="polite"
-            aria-atomic="true"
-            class="live-region"
-            id="liveRegion">
+            <div role="status" aria-live="polite" aria-atomic="true" class="live-region" id="liveRegion">
                 Estado inicial de Sistema
             </div>
             <button class="custom-button" onclick="actualizarEstado()">Actualizar estado</button>
         </section>
     </main>
 
-<!-- Información adicional -->
-<aside role="complementary" aria-label="Información adicional">
-    <h3>Información adicional</h3>
-    <p>Este contenido es complementario a la información principal de la página</p>
-    <!-- Roles de lista -->
-    <div role="list" aria-label="Características principales">
-        <div role="listitem">Característica 1</div>
-        <div role="listitem">Característica 2</div>
-        <div role="listitem">Característica 3</div>
-    </div>
-</aside>
+    <!-- Información adicional -->
+    <aside role="complementary" aria-label="Información adicional">
+        <h3>Información adicional</h3>
+        <p>Este contenido es complementario a la información principal de la página</p>
+        <!-- Roles de lista -->
+        <div role="list" aria-label="Características principales">
+            <div role="listitem">Característica 1</div>
+            <div role="listitem">Característica 2</div>
+            <div role="listitem">Característica 3</div>
+        </div>
+    </aside>
 
-<!-- Footer con role de contenido -->
-<footer role="contentinfo">
-    <p>&copy; 2025 Mi app</p>
-    <p>Roles Aria</p>
-</footer>
+    <!-- Footer con role de contenido -->
+    <footer role="contentinfo">
+        <p>&copy; 2025 Mi app</p>
+        <p>Roles Aria</p>
+    </footer>
 </body>
 
 </html>
