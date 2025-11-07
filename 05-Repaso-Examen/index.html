@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lavandería</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
 <body>
     <header role="banner">
         <nav role="navigation" aria-label="Navegación principal">
-            <div id="logoContainer" class="logo-container"><a href="#" class="logo"><img src="img/lavadora.png" alt="logo" class="logo"></a></div>
+            <div id="logoContainer" class="logo-container"><a href="#" class="logo"><img src="img/lavadora.png"
+                        alt="logo" class="logo"></a></div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#about">Acerca de</a></li>
@@ -21,12 +23,76 @@
             </ul>
         </nav>
     </header>
-    <h1>Titulo para probar header</h1>
+    <main>
+    <h2>Titulo dentro de body para probar header</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eaque dignissimos tempora veritatis? Ullam
+        aut odio, rerum pariatur consectetur mollitia ad veniam distinctio adipisci earum ratione sequi architecto autem
+        unde.</p>
+    <!-- <div class="container-carrusel">
+        <div class="carrusel-button left"></div>
+        <div class="carrusel-images">
+            <img src="https://picsum.photos/500/600" alt="imagen 1" id="img1">
+            <img src="https://picsum.photos/500/600" alt="imagen 2" id="img2">
+            <img src="https://picsum.photos/500/600" alt="imagen 3" id="img3">
+            <img src="https://picsum.photos/500/600" alt="imagen 4" id="img4">
+        </div>
+        <div class="buttons">
+            <a href="img1"></a>
+            <a href="img2"></a>
+            <a href="img3"></a>
+            <a href="img4"></a>
+            
+        </div>
+    </div> -->
+    <div class="carrousel">
+        <div class="conteCarrousel">
+            <div class="itemCarrousel" id="itemCarrousel-1">
+                <div class="itemCarrouselTarjeta">A</div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-3">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-2">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrousel" id="itemCarrousel-2">
+                <div class="itemCarrouselTarjeta">B</div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-1">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-3">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrousel" id="itemCarrousel-3">
+                <div class="itemCarrouselTarjeta">C</div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-2">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-1">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="conteCarrouselController">
+            <a href="#itemCarrousel-1">•</a>
+            <a href="#itemCarrousel-2">•</a>
+            <a href="#itemCarrousel-3">•</a>
+        </div>
+    </div>
+</main>
     <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Lavanderia</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi esse voluptatum ullam accusamus necessitatibus ex? Dolore, tempore omnis ipsa praesentium, nemo velit sequi, voluptatem reiciendis sed sapiente atque officiis quibusdam.
+                <h3>A cerca de</h3>
+                <p>Lavanderia Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eveniet officia alias
+                    voluptatum?
                 </p>
             </div>
 
@@ -39,24 +105,26 @@
             </div>
 
             <div class="footer-section">
-                <h3>Recursos</h3>
-                <a href="#">Documentación</a>
-                <a href="#">Tutoriales</a>
-                <a href="#">Ejemplos de Código</a>
-                <a href="#">Newsletter</a>
+                <h3>Servicios</h3>
+                <a href="#">Servicio 1</a>
+                <a href="#">Servicio 2</a>
+                <a href="#">Servicio 3</a>
+                <a href="#">Servicio 4</a>
             </div>
 
             <div class="footer-section">
                 <h3>Síguenos</h3>
-                <a href="#">Twitter</a>
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">YouTube</a>
+                <div>
+                    <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                    <a href="#"><i class="fa-brands fa-github"></i>GitHub</a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i>YouTube</a>
+                </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 DevBlog. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Lavandería. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>

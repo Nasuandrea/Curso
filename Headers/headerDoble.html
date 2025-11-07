@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Doble</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Barra superior azul oscuro */
+        .top-bar {
+            background-color: #1a4d7a;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .top-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-links a:hover {
+            color: #5fd4d4;
+        }
+
+        .top-links span {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #5fd4d4;
+        }
+
+        /* Barra de navegación principal */
+        .main-nav {
+            position: relative;
+            margin-top: -10px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-nav-content {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-radius: 5px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a4d7a;
+        }
+
+        .logo .me {
+            color: #5fd4d4;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: #666;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu li a:hover {
+            color: #5fd4d4;
+        }
+
+        .nav-menu li a.active {
+            color: #5fd4d4;
+        }
+
+        /* Dropdown indicator */
+        .nav-menu li a.has-dropdown::after {
+            content: ' ▼';
+            font-size: 10px;
+            margin-left: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-links">
+                <a href="#faq">Preguntas frecuentes</a>
+                <span>|</span>
+                <a href="#ayuda">Ayuda</a>
+                <span>|</span>
+                <a href="#soporte">Soporte</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="main-nav">
+        <div class="main-nav-content">
+            <div class="logo">
+                DRY <span class="me">ME</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#acerca">Acerca de</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#paginas" class="has-dropdown">Páginas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
