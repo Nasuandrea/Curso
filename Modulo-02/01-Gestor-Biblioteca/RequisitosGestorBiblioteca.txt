@@ -1,0 +1,12 @@
+Ejemplo de SISTEMA BIBLIOTECA
+ - crear un objeto GetorBiblioteca
+    - RF001: El sistema debe permitir registrar nuevos libros
+        - async - Asíncrono 
+        - const - La etructura de los datos va a ser siempre la misma (Título, autor...)
+        - condicional - Si el libro ya esta registrado en la bbdd - no volver a meterlo si no registrarlo
+    - RF002: El sistema debe permitir buscar libros por título
+        - condicional - Si está o no ese libro
+    - RF003: El sistema debe gestionar préstamos de libros
+        - condicional - si está prestado o no
+    - RF004: El sistema debe gestionar reportes de préstamos
+        - cuando se prestó y cuando se devolvió
