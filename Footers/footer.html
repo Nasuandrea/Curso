@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .footer {
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .dry {
+            color: white;
+        }
+
+        .footer-brand .me {
+            color: var(--accent-cyan);
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-cyan);
+            margin-top: 0.2rem;
+        }
+
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+/* */
+        .contact-item a:hover {
+            font-size: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a::before {
+            content: "›";
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 0.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #94a3b8;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-cyan);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+
+        .footer-bottom {
+            background-color: var(--dark-blue);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-cyan);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top:hover {
+            background-color: #0891b2;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 0;
+            }
+
+            .footer-title {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido de ejemplo para scroll -->
+    <div style="height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%); display: flex; align-items: center; justify-content: center;">
+        <h1 style="color: #1e3a8a;">Scroll hacia abajo para ver el footer</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Columna 1: Brand y Social -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand">
+                        <span class="dry">DRY</span> <span class="me">ME</span>
+                    </div>
+                    <p class="footer-description">
+                        Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sit no, sed kasd ipsum dolor duo dolor
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Contacto -->
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Contáctanos</h3>
+                    <div class="footer-contact">
+                        <p>Dolor clita stet nonumy clita diam vero, et et ipsum diam labore</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle 123, Vigo, Pontevedra</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+34345678890">+34 345 67890</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@example.com">info@example.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 3: Enlaces rápidos -->
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Sobre nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#contacto">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Newsletter -->
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Boletín informativo</h3>
+                    <form class="newsletter-form">
+                        <input type="text" placeholder="Tu nombre" required>
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit">Enviar ahora</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                © <strong>Nombre de tu sitio</strong>. Todos los derechos reservados. Diseñado por
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+</body>
+</html>
