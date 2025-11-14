@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de Pagos MVC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>🏦 Pasarela de Pagos MVC</h1>
+            <p>Sistema educativo - Patrón Modelo Vista Controlador</p>
+        </header>
+
+        <!-- VISTA PRINCIPAL -->
+        <main class="main-content">
+            <!-- Menú de Navegación -->
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-section="pagos">💳 Realizar Pago</button>
+                <button class="nav-btn" data-section="historial">📊 Historial</button>
+                <button class="nav-btn" data-section="estadisticas">📈 Estadísticas</button>
+            </nav>
+
+            <!-- Sección de Pagos -->
+            <section id="pagos" class="section active">
+                <h2>💳 Realizar Pago</h2>
+                
+                <!-- Selección de Método de Pago -->
+                <div class="method-selection">
+                    <div class="method-option" data-method="tarjeta">
+                        <div class="method-icon">💳</div>
+                        <h3>Tarjeta de Crédito</h3>
+                        <p>Pago seguro con tarjeta</p>
+                    </div>
+                    <div class="method-option" data-method="paypal">
+                        <div class="method-icon">📧</div>
+                        <h3>PayPal</h3>
+                        <p>Pago rápido con PayPal</p>
+                    </div>
+                    <div class="method-option" data-method="transferencia">
+                        <div class="method-icon">🏦</div>
+                        <h3>Transferencia</h3>
+                        <p>Transferencia bancaria</p>
+                    </div>
+                </div>
+
+                <!-- Formularios de Pago -->
+                <div class="payment-forms">
+                    <!-- Formulario Tarjeta -->
+                    <form id="form-tarjeta" class="payment-form hidden">
+                        <h3>💳 Datos de Tarjeta</h3>
+                        <div class="form-group">
+                            <label for="numeroTarjeta">Número de Tarjeta:</label>
+                            <input type="text" id="numeroTarjeta" placeholder="4111 1111 1111 1111" maxlength="16">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombreTarjeta">Nombre en la Tarjeta:</label>
+                            <input type="text" id="nombreTarjeta" placeholder="Juan Pérez">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fechaVencimiento">Fecha Vencimiento (MM/AA):</label>
+                                <input type="text" id="fechaVencimiento" placeholder="12/25" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Formulario PayPal -->
+                    <form id="form-paypal" class="payment-form hidden">
+                        <h3>📧 Datos de PayPal</h3>
+                        <div class="form-group">
+                            <label for="emailPayPal">Correo Electrónico:</label>
+                            <input type="email" id="emailPayPal" placeholder="usuario@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordPayPal">Contraseña:</label>
+                            <input type="password" id="passwordPayPal" placeholder="••••••••">
+                        </div>
+                    </form>
+
+                    <!-- Formulario Transferencia -->
+                    <form id="form-transferencia" class="payment-form hidden">
+                        <h3>🏦 Datos de Transferencia</h3>
+                        <div class="form-group">
+                            <label for="numeroCuenta">Número de Cuenta:</label>
+                            <input type="text" id="numeroCuenta" placeholder="123456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombreBanco">Nombre del Banco:</label>
+                            <input type="text" id="nombreBanco" placeholder="Banco Ejemplo">
+                        </div>
+                        <div class="form-group">
+                            <label for="titularCuenta">Titular de la Cuenta:</label>
+                            <input type="text" id="titularCuenta" placeholder="Juan Pérez">
+                        </div>
+                    </form>
+
+                    <!-- Información Común del Pago -->
+                    <div class="common-info">
+                        <div class="form-group">
+                            <label for="montoPago">Monto a Pagar (€):</label>
+                            <input type="number" id="montoPago" value="100" min="1" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcionPago">Descripción:</label>
+                            <input type="text" id="descripcionPago" placeholder="Compra en Tienda Online">
+                        </div>
+                    </div>
+
+                    <!-- Botón de Procesar Pago -->
+                    <button id="btnProcesarPago" class="btn-primary">🔄 Procesar Pago</button>
+                </div>
+
+                <!-- Resultado del Pago -->
+                <div id="resultadoPago" class="resultado hidden">
+                    <!-- Aquí se mostrará el resultado -->
+                </div>
+            </section>
+
+            <!-- Sección de Historial -->
+            <section id="historial" class="section">
+                <h2>📊 Historial de Pagos</h2>
+                <div id="listaHistorial" class="historial-lista">
+                    <!-- Aquí se cargará el historial -->
+                </div>
+            </section>
+
+            <!-- Sección de Estadísticas -->
+            <section id="estadisticas" class="section">
+                <h2>📈 Estadísticas de Pagos</h2>
+                <div id="estadisticasContenido" class="estadisticas">
+                    <!-- Aquí se cargarán las estadísticas -->
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>Sistema educativo - Patrón MVC | Para fines didácticos</p>
+        </footer>
+    </div>
+<script src="vista.js"></script>
+    <!--<script src="modelo.js"></script>
+    
+    <script src="controlador.js"></script>
+    <script src="app.js"></script>-->
+</body>
+</html>
