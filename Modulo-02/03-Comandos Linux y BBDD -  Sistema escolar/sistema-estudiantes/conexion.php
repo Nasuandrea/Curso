@@ -17,6 +17,6 @@ die("Error de conexión" . $conexion -> connect_error);
 $conexion -> set_charset("utf8");
 
 //Zona horaria opcional
-date_default_timezone_set('Europe/Spain');
+date_default_timezone_set('Europe/Madrid');
 echo "<!--Conexión establecida correctamente -->";
 ?>

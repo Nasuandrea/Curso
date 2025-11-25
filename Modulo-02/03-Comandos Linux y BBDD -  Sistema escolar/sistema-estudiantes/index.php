@@ -1,18 +1,17 @@
 <?php
-//index.php
-include 'conexion.php';
-include '/includes/header.php'
 
+include 'conexion.php';
+include 'includes/header.php';
 ?>
 <div class= "row">
     <div class= "col-md-12">
-        <h1 class= "text-center-mb-4">
+        <h1 class= "text-center mb-4">
             Bienvenidos al Sistema de Gestión
         </h1>
         <div class= "card-body">
             <h5> Estudiantes </h5>
             <?php 
-            $query = "SELECT COUNT(*) as total FROM estudiantes WHERE activo =1"
+            $query = "SELECT COUNT(*) as total FROM estudiantes WHERE activo = 1;";
             ?>
             <a href="#"> Ver Estudiantes </a>
         </div>
