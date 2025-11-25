@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema estudiantes</title>
-    <link rel= "stylesheet" href= "css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css">
+    <title>Sistema de Gestión Estudiantil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class= "container" >
-            <a class= "navbar-brand" href="index.php"> Sistema de estudiantes</a>
-            <button class= "navbar-toggler" type= "button" data-bs-toggle= "collapse" data-bs-target= "#navbarNav">
-                <span class= "navbar-toggler-icon"></span>
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                Sistema Estudiantil
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estudiantes.php">Estudiantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="asignaturas.php">Asignaturas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matriculas.php">Matrículas</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class= "container mt-4">
+    <div class="container mt-4">

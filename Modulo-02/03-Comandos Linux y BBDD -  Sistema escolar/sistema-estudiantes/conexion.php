@@ -1,22 +1,23 @@
 <?php
-//conexion-php
+// conexion.php 
 $host = 'localhost';
-$usuario = 'root';
-$password = '1234';
+$usuario = 'root'; //CAMBIAR POR TU USUARIO
+$password = '1234';  // Cambiar por tu password real
 $basedatos = 'sistema_escolar';
 
-//Creamos conexion
+// Crear conexión
 $conexion = new mysqli($host, $usuario, $password, $basedatos);
 
-//Verificación
-if($conexion -> connect_error){
-die("Error de conexión" . $conexion -> connect_error);
+// Verificar conexión
+if ($conexion->connect_error) {
+
+    error_log("Error de conexión a BD: " . $conexion->connect_error);
+    die("Error en el sistema. Por favor contacte al administrador.");
 }
 
-//Establecer ubicación por defecto
-$conexion -> set_charset("utf8");
+// Establecer charset
+$conexion->set_charset("utf8");
 
-//Zona horaria opcional
-date_default_timezone_set('Europe/Madrid');
-echo "<!--Conexión establecida correctamente -->";
+// Configurar zona horaria
+date_default_timezone_set('Europa/España');
 ?>
