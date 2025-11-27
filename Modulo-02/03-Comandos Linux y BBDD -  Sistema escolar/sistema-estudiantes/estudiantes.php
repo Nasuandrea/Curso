@@ -52,6 +52,13 @@ include 'includes/header.php';
         </table>
     </div>
 </div>
-<?php
-include "includes/footer.php";
+<!--MODAL DE ESTUDIANTES (modal es una ventana emergente)
+
+-->
+
+<?php include 'modales/modal-estudiantes.php';?>
+<!-- INTERACTIVIDAD CON JS -->
+<script src="js/gestion-estudiantes.js"></script>
+
+<?php include "includes/footer.php";
 ?>
