@@ -5,7 +5,9 @@ include 'includes/header.php';
 <h2>Gestión de Estudiantes</h2>
 <div class="card">
     <div class="card-body">
-        <button class="btn btn-primary mb-3" data-bs-toogle="modal" data-bs-target="#modalEstudiante">Agregar Estudiante</button>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalEstudiante">
+            ➕ Agregar Estudiante
+        </button>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
