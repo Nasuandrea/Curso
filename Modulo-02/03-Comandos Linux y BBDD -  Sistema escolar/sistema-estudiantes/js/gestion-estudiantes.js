@@ -94,3 +94,25 @@ function guardarEstudiante(){
  * @param {number} id -- el id del estudiante a eliminar
  * confirm() para confirmar antes de eliminar
  */
+function eliminarEstudiante(id){
+    //Peticion confimacion al usuario
+    if(confirm('Estas seguro de que deseas eliminar este estudiante? \n\n Esta acción no se puede deshacer')){
+        //Enviar peticion de eliminacion
+        fetch('api/eliminar-estudiante.php',{
+            method:'POST',
+            headers: {
+                'Content type:': 'aplication/x-www-form-urlencoded'},
+            body: `id=${id}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.exito){
+                //Exito
+
+            }else{
+
+            }
+        })
+        .catch();
+    }
+}
