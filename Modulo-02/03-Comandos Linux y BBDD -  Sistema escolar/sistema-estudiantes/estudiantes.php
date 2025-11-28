@@ -38,8 +38,8 @@ include 'includes/header.php';
                         <td> {$row['curso']}</td>
                         <td> {$estado}</td>
                         <td>
-                            <button class='btn btn-sm btn-warning'>Editar</button>
-                            <button class='btn btn-sm btn-danger'>Eliminar</button>
+                            <button class='btn btn-sm btn-warning' onclick='abrirModalEditar({$fila['id']})'>Editar</button>
+                            <button class='btn btn-sm btn-danger' onclick='eliminarEstudiante({$fila['id']})'>Eliminar</button>
                         </td>
                         </tr>";
                     }

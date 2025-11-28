@@ -86,7 +86,7 @@ function guardarEstudiante(){
     }).catch(error=>{
         //Manejar errores de red o del servidor
         console.error('Error: ', error);
-        alert('Error al cargar los datos del estudiante');
+        alert('Error al guardar los datos del estudiante');
     });
 }
 /** Funcion eliminarEstudiante(id)
@@ -101,7 +101,7 @@ function eliminarEstudiante(id){
         fetch('api/eliminar-estudiante.php',{
             method:'POST',
             headers: {
-                'Content type:': 'aplication/x-www-form-urlencoded'},
+                'Content type:': 'application/x-www-form-urlencoded'},
             body: `id=${id}`
         })
         .then(response => response.json())
