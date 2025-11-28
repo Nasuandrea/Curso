@@ -26,7 +26,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
     //Verificar si el dni existe en el sistema
-    $consulta = "INSERT INTO estudiantes(dni,nombre,apellido,edad,curso)VALUES(?,?,?,?,?)"
+    $consulta = "INSERT INTO estudiantes(dni,nombre,apellido,edad,curso)VALUES(?,?,?,?,?)";
+    //Verificar conexion a la bbdd
+    $stmt = $conexion -> prepare($consulta);
+    $stmt = bind_param("sssis",$dni,$nombre,$apellido,$edad,$curso);
+
+    //Ejecutar consulta
+    if ($stmt -> execute()) {
+        echo json_encode([
+            'exito' => 'true',
+            'mensaje'=> 'Estudiante creado exitosamente',
+            'id' => $stmt -> insert_id //ID del nuevo estudiante
+            ]);
+    }else{
+        echo json_encode([
+            'exito'=> 'false',
+            'mensaje' => 'Error al crear estudiante:'.$conexion -> error
+        ]);
+    }else{
+           echo json_encode([
+            //Si no es post, retornar error
+            'exito'=> 'false',
+            'mensaje' => 'método no permitido'
+        ]);
+    }
 
 }
 

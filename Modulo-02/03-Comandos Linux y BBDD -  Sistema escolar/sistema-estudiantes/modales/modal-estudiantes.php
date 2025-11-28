@@ -66,7 +66,7 @@ include '../conexion.php'; ?>
 <!--boton de cerrar sin cambios-->
 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 <!--boton de guardar datos con js-->
-<button type="button" class="btn btn-primary" onclick="guardarEstudiantes()">Guardar estudiante</button>
+<button type="button" class="btn btn-primary" onclick="guardarEstudiante()">Guardar estudiante</button>
 </div>
 
 </div>
@@ -74,3 +74,4 @@ include '../conexion.php'; ?>
 </div>
 
 </div>
+<script src="../js/gestion-estudiantes.js"> </script>

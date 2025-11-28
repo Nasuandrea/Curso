@@ -19,5 +19,5 @@ if ($conexion->connect_error) {
 $conexion->set_charset("utf8");
 
 // Configurar zona horaria
-date_default_timezone_set('Europa/España');
+date_default_timezone_set('Europe/Madrid');
 ?>

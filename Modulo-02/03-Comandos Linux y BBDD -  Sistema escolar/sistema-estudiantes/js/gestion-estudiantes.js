@@ -107,12 +107,18 @@ function eliminarEstudiante(id){
         .then(response => response.json())
         .then(data => {
             if(data.exito){
-                //Exito
-
+                alert('OK: '+ data.mensaje);
+                //Recargar la pagina para ver los cambios
+                location.reload();
             }else{
-
+                //Error: mostrar mensaje
+                alert('Error '+ data.mensaje);
             }
         })
-        .catch();
+        .catch(error=>{
+            //Manejar errores de red o del servidor
+            console.error('Error: ', error);
+            alert('Error al eliminar el estudiante');
+        });
     }
 }
