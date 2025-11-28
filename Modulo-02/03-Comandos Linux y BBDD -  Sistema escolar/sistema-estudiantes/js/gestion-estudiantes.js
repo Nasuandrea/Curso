@@ -18,7 +18,7 @@ function abrirModal(){
     //2. Limpiar el campo id (para que el servidor sepa que es uno nuevo)
     document.getElementById('estudianteId').value='';
     //3. Cambiar el titulo del modal
-    document.getElementById('modalTitulo').textContent='Editar Estudiante';
+    document.getElementById('modalTitulo').textContent='Agregar Estudiante';
     //4. Obtener datos desde el servidor (la BBDD)
     //Fetch API forma de peticiones en JavaScript
     fetch(`api/obtener-estudiantes.php?=${id}`)
