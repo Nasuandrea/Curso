@@ -1,0 +1,9 @@
+https://www.virtualbox.org/wiki/Downloads
+https://www.bcuninstaller.com/
+https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html
+https://libreelec.tv/
+https://linuxmint.com/
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
+https://alfa-addon.com/alfa/
+https://ftp.fau.de/libreelec/?C=M;O=A
