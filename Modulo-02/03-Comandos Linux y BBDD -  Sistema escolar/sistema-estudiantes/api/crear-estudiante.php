@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $consulta = "INSERT INTO estudiantes(dni,nombre,apellido,edad,curso)VALUES(?,?,?,?,?)";
     //Verificar conexion a la bbdd
     $stmt = $conexion->prepare($consulta);
-    $stmt = bind_param("sssis", $dni, $nombre, $apellido, $edad, $curso);
+    $stmt -> bind_param("sssis", $dni, $nombre, $apellido, $edad, $curso);
 
     //Ejecutar consulta
     if ($stmt->execute()) {
