@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- WordPress eXtended RSS (WXR) - Archivo de importación de contenido de muestra -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+
+<channel>
+	<title>Mi Sitio Web de Portfolio</title>
+	<link>http://www.ejemplo.com</link>
+	<description>Contenido de muestra para demostrar mis servicios</description>
+	<pubDate>Fri, 13 Dec 2024 10:00:00 +0000</pubDate>
+	<language>es-ES</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://www.ejemplo.com</wp:base_site_url>
+	<wp:base_blog_url>http://www.ejemplo.com</wp:base_blog_url>
+
+	<!-- Página de Inicio -->
+	<item>
+		<title>Inicio</title>
+		<link>http://www.ejemplo.com/inicio/</link>
+		<pubDate>Mon, 01 Jan 2024 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[<h1>Bienvenido a Mi Portfolio</h1>
+
+<p>Soy un profesional creativo especializado en desarrollo web, diseño gráfico y marketing digital. Con más de 5 años de experiencia, ayudo a empresas y emprendedores a destacar en el mundo digital.</p>
+
+<h2>¿Qué Puedo Hacer Por Ti?</h2>
+
+<p>Ofrezco soluciones personalizadas que combinan diseño atractivo, funcionalidad impecable y estrategias efectivas para alcanzar tus objetivos.</p>
+
+<ul>
+<li>Desarrollo web responsive y optimizado</li>
+<li>Diseño de identidad corporativa</li>
+<li>Estrategias de marketing digital</li>
+<li>Optimización SEO</li>
+</ul>
+
+<p><a href="/servicios/">Ver todos mis servicios →</a></p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2024-01-01 10:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-01-01 10:00:00</wp:post_date_gmt>
+		<wp:post_modified>2024-01-01 10:00:00</wp:post_modified>
+		<wp:post_modified_gmt>2024-01-01 10:00:00</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>inicio</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Página de Servicios -->
+	<item>
+		<title>Servicios</title>
+		<link>http://www.ejemplo.com/servicios/</link>
+		<pubDate>Mon, 01 Jan 2024 11:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?page_id=3</guid>
+		<description></description>
+		<content:encoded><![CDATA[<h1>Mis Servicios</h1>
+
+<h2>Desarrollo Web</h2>
+<p>Creación de sitios web modernos, responsivos y optimizados para todos los dispositivos. Utilizo las últimas tecnologías para garantizar rapidez, seguridad y una excelente experiencia de usuario.</p>
+
+<ul>
+<li>Sitios web corporativos</li>
+<li>Tiendas online (eCommerce)</li>
+<li>Blogs y portfolios</li>
+<li>Aplicaciones web personalizadas</li>
+</ul>
+
+<h2>Diseño Gráfico</h2>
+<p>Diseño de identidad visual que refleja la esencia de tu marca. Desde logotipos hasta material publicitario completo.</p>
+
+<ul>
+<li>Diseño de logotipos e identidad corporativa</li>
+<li>Material publicitario (folletos, banners, tarjetas)</li>
+<li>Diseño para redes sociales</li>
+<li>Ilustraciones personalizadas</li>
+</ul>
+
+<h2>Marketing Digital</h2>
+<p>Estrategias efectivas para aumentar tu presencia online y convertir visitantes en clientes.</p>
+
+<ul>
+<li>SEO y posicionamiento en buscadores</li>
+<li>Gestión de redes sociales</li>
+<li>Campañas de publicidad online</li>
+<li>Email marketing</li>
+</ul>
+
+<h2>Consultoría</h2>
+<p>Asesoramiento personalizado para optimizar tu estrategia digital y alcanzar tus objetivos de negocio.</p>
+
+<p><a href="/contacto/">¿Hablamos de tu proyecto? →</a></p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2024-01-01 11:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-01-01 11:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>servicios</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Página Sobre Mí -->
+	<item>
+		<title>Sobre Mí</title>
+		<link>http://www.ejemplo.com/sobre-mi/</link>
+		<pubDate>Mon, 01 Jan 2024 12:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?page_id=4</guid>
+		<description></description>
+		<content:encoded><![CDATA[<h1>Sobre Mí</h1>
+
+<p>¡Hola! Soy [Tu Nombre], un apasionado del diseño y la tecnología con más de 5 años ayudando a empresas a crecer en el entorno digital.</p>
+
+<h2>Mi Historia</h2>
+<p>Comencé mi carrera como diseñador freelance mientras estudiaba en la universidad. Lo que empezó como un hobby se convirtió en mi pasión, y desde entonces he tenido la oportunidad de trabajar con más de 50 clientes en diversos sectores.</p>
+
+<h2>Mi Filosofía</h2>
+<p>Creo firmemente que cada proyecto es único y merece una atención personalizada. Mi enfoque combina creatividad, estrategia y las mejores prácticas técnicas para crear soluciones que no solo se ven bien, sino que funcionan de manera excepcional.</p>
+
+<h2>Experiencia y Habilidades</h2>
+<ul>
+<li><strong>Diseño:</strong> Adobe Creative Suite, Figma, Sketch</li>
+<li><strong>Desarrollo:</strong> HTML, CSS, JavaScript, WordPress, React</li>
+<li><strong>Marketing:</strong> SEO, Google Analytics, Social Media Management</li>
+<li><strong>Herramientas:</strong> Git, Photoshop, Illustrator, InDesign</li>
+</ul>
+
+<h2>¿Por Qué Trabajar Conmigo?</h2>
+<ul>
+<li>Comunicación clara y transparente</li>
+<li>Cumplimiento de plazos</li>
+<li>Atención al detalle</li>
+<li>Soporte post-lanzamiento</li>
+<li>Precios competitivos</li>
+</ul>
+
+<p><a href="/portfolio/">Ver mi trabajo →</a></p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date>2024-01-01 12:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-01-01 12:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>sobre-mi</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Página de Portfolio -->
+	<item>
+		<title>Portfolio</title>
+		<link>http://www.ejemplo.com/portfolio/</link>
+		<pubDate>Mon, 01 Jan 2024 13:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?page_id=5</guid>
+		<description></description>
+		<content:encoded><![CDATA[<h1>Portfolio</h1>
+
+<p>Aquí puedes ver algunos de mis proyectos más destacados. Cada uno representa un desafío único y una solución creativa adaptada a las necesidades específicas del cliente.</p>
+
+<h2>Proyectos Destacados</h2>
+
+<h3>Rediseño Web - Restaurante La Viña</h3>
+<p>Rediseño completo de sitio web para restaurante local, incluyendo sistema de reservas online y menú digital interactivo.</p>
+<p><strong>Tecnologías:</strong> WordPress, WooCommerce, CSS personalizado</p>
+
+<h3>Identidad Corporativa - TechStart Solutions</h3>
+<p>Desarrollo de identidad visual completa para startup tecnológica, incluyendo logotipo, paleta de colores y guías de estilo.</p>
+<p><strong>Servicios:</strong> Diseño gráfico, branding, material corporativo</p>
+
+<h3>Tienda Online - Moda Urbana</h3>
+<p>Creación de eCommerce desde cero con más de 500 productos, integración con sistemas de pago y logística.</p>
+<p><strong>Tecnologías:</strong> WooCommerce, Stripe, envíos automatizados</p>
+
+<h3>Campaña Digital - Eventos García</h3>
+<p>Estrategia completa de marketing digital que aumentó las ventas en un 150% en 3 meses.</p>
+<p><strong>Servicios:</strong> SEO, Google Ads, Social Media, Email Marketing</p>
+
+<p><a href="/contacto/">¿Quieres ver tu proyecto aquí? →</a></p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5</wp:post_id>
+		<wp:post_date>2024-01-01 13:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-01-01 13:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>portfolio</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Blog Post 1 -->
+	<item>
+		<title>10 Tendencias de Diseño Web para 2024</title>
+		<link>http://www.ejemplo.com/blog/tendencias-diseno-web-2024/</link>
+		<pubDate>Tue, 15 Oct 2024 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?p=10</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p>El diseño web evoluciona constantemente. Aquí te presento las tendencias más importantes que están marcando el 2024 y cómo puedes implementarlas en tu proyecto.</p>
+
+<h2>1. Diseño Minimalista con Tipografía Audaz</h2>
+<p>Menos es más. Los diseños limpios con tipografías grandes y llamativas están dominando el panorama digital.</p>
+
+<h2>2. Modo Oscuro</h2>
+<p>Ya no es opcional. Los usuarios esperan poder elegir entre modo claro y oscuro para mejorar su experiencia de navegación.</p>
+
+<h2>3. Microinteracciones</h2>
+<p>Pequeñas animaciones que responden a las acciones del usuario crean una experiencia más engaging y memorable.</p>
+
+<h2>4. Diseño Asimétrico</h2>
+<p>Romper con las cuadrículas tradicionales para crear layouts más dinámicos y visualmente interesantes.</p>
+
+<h2>5. Ilustraciones 3D</h2>
+<p>Las ilustraciones tridimensionales añaden profundidad y un toque moderno a cualquier diseño.</p>
+
+<p>¿Quieres implementar estas tendencias en tu sitio web? <a href="/contacto/">Contáctame</a> y hablemos de tu proyecto.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[El diseño web evoluciona constantemente. Descubre las 10 tendencias más importantes de 2024.]]></excerpt:encoded>
+		<wp:post_id>10</wp:post_id>
+		<wp:post_date>2024-10-15 09:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-10-15 09:00:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>tendencias-diseno-web-2024</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="diseno-web"><![CDATA[Diseño Web]]></category>
+		<category domain="post_tag" nicename="tendencias"><![CDATA[tendencias]]></category>
+		<category domain="post_tag" nicename="2024"><![CDATA[2024]]></category>
+	</item>
+
+	<!-- Blog Post 2 -->
+	<item>
+		<title>Cómo Mejorar el SEO de tu Sitio WordPress</title>
+		<link>http://www.ejemplo.com/blog/mejorar-seo-wordpress/</link>
+		<pubDate>Wed, 23 Oct 2024 10:30:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?p=11</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p>El SEO es fundamental para que tu sitio web sea encontrado. Aquí te comparto estrategias prácticas para mejorar el posicionamiento de tu WordPress.</p>
+
+<h2>Optimización Técnica</h2>
+<p>Asegúrate de que tu sitio carga rápido, es responsive y tiene una estructura de URLs clara. Utiliza plugins como Yoast SEO o Rank Math para ayudarte.</p>
+
+<h2>Contenido de Calidad</h2>
+<p>Google premia el contenido relevante y bien escrito. Actualiza regularmente tu blog con artículos que aporten valor a tu audiencia.</p>
+
+<h2>Keywords Estratégicas</h2>
+<p>Investiga las palabras clave que tu público objetivo busca y úsalas naturalmente en tus contenidos, títulos y metadescripciones.</p>
+
+<h2>Enlaces Internos</h2>
+<p>Conecta tus páginas entre sí para ayudar a Google a entender la estructura de tu sitio y mantener a los usuarios más tiempo navegando.</p>
+
+<h2>Optimización de Imágenes</h2>
+<p>Comprime tus imágenes, usa nombres descriptivos y añade texto alternativo (alt text) a todas ellas.</p>
+
+<p>¿Necesitas ayuda con el SEO de tu sitio? <a href="/servicios/">Descubre mis servicios</a>.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Estrategias prácticas y efectivas para mejorar el posicionamiento SEO de tu WordPress.]]></excerpt:encoded>
+		<wp:post_id>11</wp:post_id>
+		<wp:post_date>2024-10-23 10:30:00</wp:post_date>
+		<wp:post_date_gmt>2024-10-23 10:30:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>mejorar-seo-wordpress</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="seo"><![CDATA[SEO]]></category>
+		<category domain="category" nicename="wordpress"><![CDATA[WordPress]]></category>
+		<category domain="post_tag" nicename="posicionamiento"><![CDATA[posicionamiento]]></category>
+	</item>
+
+	<!-- Blog Post 3 -->
+	<item>
+		<title>La Importancia de la Velocidad de Carga en tu Web</title>
+		<link>http://www.ejemplo.com/blog/velocidad-carga-web/</link>
+		<pubDate>Mon, 04 Nov 2024 14:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?p=12</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p>La velocidad de carga puede hacer o deshacer tu negocio online. Un sitio lento significa menos conversiones, peor posicionamiento y usuarios frustrados.</p>
+
+<h2>¿Por Qué es Tan Importante?</h2>
+<p>Los estudios demuestran que el 40% de los usuarios abandonan un sitio que tarda más de 3 segundos en cargar. Cada segundo cuenta.</p>
+
+<h2>Impacto en el SEO</h2>
+<p>Google considera la velocidad como factor de ranking. Un sitio rápido tiene más probabilidades de aparecer en los primeros resultados.</p>
+
+<h2>Cómo Mejorar la Velocidad</h2>
+
+<h3>1. Optimiza las Imágenes</h3>
+<p>Usa formatos modernos como WebP y comprime tus imágenes sin perder calidad.</p>
+
+<h3>2. Implementa Caché</h3>
+<p>Plugins como WP Rocket o W3 Total Cache pueden reducir drásticamente los tiempos de carga.</p>
+
+<h3>3. Usa un CDN</h3>
+<p>Una red de distribución de contenidos entrega tus archivos desde servidores cercanos al usuario.</p>
+
+<h3>4. Minimiza CSS y JavaScript</h3>
+<p>Elimina código innecesario y combina archivos cuando sea posible.</p>
+
+<h3>5. Elige un Buen Hosting</h3>
+<p>No escatimes en hosting. Un servidor rápido es la base de un sitio veloz.</p>
+
+<p>¿Quieres una auditoría gratuita de velocidad? <a href="/contacto/">Escríbeme</a>.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Descubre por qué la velocidad de carga es crucial y cómo mejorarla en tu sitio web.]]></excerpt:encoded>
+		<wp:post_id>12</wp:post_id>
+		<wp:post_date>2024-11-04 14:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-11-04 14:00:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>velocidad-carga-web</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="desarrollo-web"><![CDATA[Desarrollo Web]]></category>
+		<category domain="category" nicename="rendimiento"><![CDATA[Rendimiento]]></category>
+		<category domain="post_tag" nicename="optimizacion"><![CDATA[optimización]]></category>
+	</item>
+
+	<!-- Página de Contacto -->
+	<item>
+		<title>Contacto</title>
+		<link>http://www.ejemplo.com/contacto/</link>
+		<pubDate>Mon, 01 Jan 2024 14:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.ejemplo.com/?page_id=6</guid>
+		<description></description>
+		<content:encoded><![CDATA[<h1>Contacto</h1>
+
+<p>¿Tienes un proyecto en mente? Me encantaría escucharlo. Completa el formulario y te responderé lo antes posible.</p>
+
+<h2>Información de Contacto</h2>
+<ul>
+<li><strong>Email:</strong> hola@ejemplo.com</li>
+<li><strong>Teléfono:</strong> +34 123 456 789</li>
+<li><strong>Ubicación:</strong> Vigo, Galicia, España</li>
+</ul>
+
+<h2>Horario de Atención</h2>
+<p>Lunes a Viernes: 9:00 - 18:00<br>
+Respondo emails en menos de 24 horas.</p>
+
+<h2>Redes Sociales</h2>
+<ul>
+<li><a href="#">LinkedIn</a></li>
+<li><a href="#">Instagram</a></li>
+<li><a href="#">Twitter</a></li>
+<li><a href="#">GitHub</a></li>
+</ul>
+
+<p><strong>Nota:</strong> Aquí deberías insertar tu formulario de contacto usando Contact Form 7, WPForms o el plugin que prefieras.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>6</wp:post_id>
+		<wp:post_date>2024-01-01 14:00:00</wp:post_date>
+		<wp:post_date_gmt>2024-01-01 14:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>contacto</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+</channel>
+</rss>

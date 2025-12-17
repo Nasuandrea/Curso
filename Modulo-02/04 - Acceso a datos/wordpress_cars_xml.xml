@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:wp="http://wordpress.org/export/1.2/">
+    
+    <channel>
+        <title>AutoExcelencia - Concesionario Premium</title>
+        <link>https://autoexcelencia.com</link>
+        <description>Tu concesionario de confianza con las mejores ofertas</description>
+        <language>es-ES</language>
+        <wp:wxr_version>1.2</wp:wxr_version>
+        <wp:base_site_url>https://autoexcelencia.com</wp:base_site_url>
+        <wp:base_blog_url>https://autoexcelencia.com</wp:base_blog_url>
+        
+        <!-- Páginas principales -->
+        <item>
+            <title>Inicio</title>
+            <link>https://autoexcelencia.com/</link>
+            <pubDate>Mon, 01 Jan 2024 10:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=1</guid>
+            <description></description>
+            <content:encoded><![CDATA[
+                <h1>Bienvenido a AutoExcelencia</h1>
+                <p>Descubre nuestra amplia gama de vehículos nuevos y seminuevos. Más de 20 años de experiencia en el sector automovilístico.</p>
+                
+                <h2>Nuestros Servicios</h2>
+                <ul>
+                    <li>Venta de vehículos nuevos y seminuevos</li>
+                    <li>Financiación personalizada</li>
+                    <li>Taller mecánico oficial</li>
+                    <li>Compra de tu vehículo usado</li>
+                </ul>
+                
+                <h2>¿Por qué elegirnos?</h2>
+                <p>En AutoExcelencia nos comprometemos con la excelencia en cada aspecto. Garantía extendida, servicio postventa de calidad y los mejores precios del mercado.</p>
+            ]]></content:encoded>
+            <wp:post_id>1</wp:post_id>
+            <wp:post_date>2024-01-01 10:00:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>1</wp:menu_order>
+        </item>
+        
+        <item>
+            <title>Vehículos Nuevos</title>
+            <link>https://autoexcelencia.com/vehiculos-nuevos/</link>
+            <pubDate>Mon, 01 Jan 2024 10:30:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=2</guid>
+            <content:encoded><![CDATA[
+                <h1>Catálogo de Vehículos Nuevos</h1>
+                <p>Explora nuestra selección de vehículos 0 km con garantía oficial del fabricante.</p>
+                
+                <h2>Modelos Destacados 2024</h2>
+                <p>Descubre las últimas novedades del mercado con tecnología de vanguardia, sistemas de seguridad avanzados y diseños innovadores.</p>
+                
+                <h3>Ventajas de Comprar Nuevo</h3>
+                <ul>
+                    <li>Garantía oficial de 3 años</li>
+                    <li>Últimas tecnologías de seguridad</li>
+                    <li>Máxima eficiencia energética</li>
+                    <li>Personalización a tu gusto</li>
+                    <li>Financiación 0% interés</li>
+                </ul>
+            ]]></content:encoded>
+            <wp:post_id>2</wp:post_id>
+            <wp:post_date>2024-01-01 10:30:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>2</wp:menu_order>
+        </item>
+        
+        <item>
+            <title>Vehículos Seminuevos</title>
+            <link>https://autoexcelencia.com/vehiculos-seminuevos/</link>
+            <pubDate>Mon, 01 Jan 2024 11:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=3</guid>
+            <content:encoded><![CDATA[
+                <h1>Vehículos Seminuevos Certificados</h1>
+                <p>Todos nuestros vehículos de ocasión pasan por una rigurosa inspección de 150 puntos.</p>
+                
+                <h2>Certificación de Calidad</h2>
+                <p>Cada vehículo incluye:</p>
+                <ul>
+                    <li>Informe de historial completo</li>
+                    <li>Revisión mecánica exhaustiva</li>
+                    <li>Garantía extendida disponible</li>
+                    <li>Kilómetros verificados</li>
+                    <li>ITV en vigor</li>
+                </ul>
+                
+                <h3>Stock Disponible</h3>
+                <p>Más de 100 vehículos seminuevos en stock con diferentes marcas, modelos y acabados.</p>
+            ]]></content:encoded>
+            <wp:post_id>3</wp:post_id>
+            <wp:post_date>2024-01-01 11:00:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>3</wp:menu_order>
+        </item>
+        
+        <item>
+            <title>Financiación</title>
+            <link>https://autoexcelencia.com/financiacion/</link>
+            <pubDate>Mon, 01 Jan 2024 11:30:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=4</guid>
+            <content:encoded><![CDATA[
+                <h1>Opciones de Financiación</h1>
+                <p>Facilitamos la compra de tu vehículo con planes de financiación a medida.</p>
+                
+                <h2>Nuestros Planes</h2>
+                <ul>
+                    <li><strong>Financiación sin entrada</strong>: Hasta 96 meses</li>
+                    <li><strong>Leasing</strong>: Ideal para autónomos y empresas</li>
+                    <li><strong>Renting</strong>: Sin preocupaciones, todo incluido</li>
+                    <li><strong>Plan Renove</strong>: Entrega tu vehículo usado</li>
+                </ul>
+                
+                <h3>Calculadora de Cuotas</h3>
+                <p>Calcula tu cuota mensual y descubre cuánto puedes ahorrar. Respuesta inmediata en menos de 24 horas.</p>
+                
+                <h3>Ventajas</h3>
+                <p>TIN desde 4.99%, sin comisiones de apertura y posibilidad de amortización anticipada sin penalización.</p>
+            ]]></content:encoded>
+            <wp:post_id>4</wp:post_id>
+            <wp:post_date>2024-01-01 11:30:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>4</wp:menu_order>
+        </item>
+        
+        <item>
+            <title>Taller y Servicio</title>
+            <link>https://autoexcelencia.com/taller/</link>
+            <pubDate>Mon, 01 Jan 2024 12:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=5</guid>
+            <content:encoded><![CDATA[
+                <h1>Taller Oficial Multimarca</h1>
+                <p>Servicio técnico especializado con mecánicos certificados y tecnología de diagnóstico avanzada.</p>
+                
+                <h2>Nuestros Servicios de Taller</h2>
+                <ul>
+                    <li>Mantenimiento preventivo</li>
+                    <li>Reparación de motor y transmisión</li>
+                    <li>Electricidad y electrónica</li>
+                    <li>Aire acondicionado</li>
+                    <li>Neumáticos y alineación</li>
+                    <li>ITV y pre-ITV</li>
+                    <li>Carrocería y pintura</li>
+                </ul>
+                
+                <h3>Recambios Originales</h3>
+                <p>Utilizamos únicamente recambios originales con garantía del fabricante.</p>
+                
+                <h3>Cita Previa</h3>
+                <p>Reserva tu cita online o llámanos. Servicio de vehículo de cortesía disponible.</p>
+            ]]></content:encoded>
+            <wp:post_id>5</wp:post_id>
+            <wp:post_date>2024-01-01 12:00:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>5</wp:menu_order>
+        </item>
+        
+        <item>
+            <title>Contacto</title>
+            <link>https://autoexcelencia.com/contacto/</link>
+            <pubDate>Mon, 01 Jan 2024 12:30:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?page_id=6</guid>
+            <content:encoded><![CDATA[
+                <h1>Contacta con Nosotros</h1>
+                <p>Estamos aquí para ayudarte. Visítanos, llámanos o escríbenos.</p>
+                
+                <h2>Datos de Contacto</h2>
+                <p><strong>Dirección:</strong> Calle Principal 123, 28001 Madrid</p>
+                <p><strong>Teléfono:</strong> 91 234 56 78</p>
+                <p><strong>Email:</strong> info@autoexcelencia.com</p>
+                <p><strong>Horario:</strong> Lunes a Viernes: 9:00 - 20:00 | Sábados: 10:00 - 14:00</p>
+                
+                <h3>Formulario de Contacto</h3>
+                <p>[Aquí iría el formulario de contacto]</p>
+                
+                <h3>Cómo Llegar</h3>
+                <p>Fácil acceso desde la M-30. Parking gratuito para clientes.</p>
+            ]]></content:encoded>
+            <wp:post_id>6</wp:post_id>
+            <wp:post_date>2024-01-01 12:30:00</wp:post_date>
+            <wp:post_type>page</wp:post_type>
+            <wp:status>publish</wp:status>
+            <wp:menu_order>6</wp:menu_order>
+        </item>
+        
+        <!-- Entradas de blog -->
+        <item>
+            <title>Cómo elegir tu primer coche: Guía completa</title>
+            <link>https://autoexcelencia.com/blog/como-elegir-primer-coche/</link>
+            <pubDate>Wed, 15 Nov 2023 09:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?p=101</guid>
+            <description>Consejos esenciales para comprar tu primer vehículo</description>
+            <content:encoded><![CDATA[
+                <h2>La Decisión Más Importante</h2>
+                <p>Comprar tu primer coche es una decisión emocionante pero también importante. En esta guía te ayudaremos a tomar la mejor elección.</p>
+                
+                <h3>1. Define tu Presupuesto</h3>
+                <p>Antes de enamorarte de un modelo, establece cuánto puedes gastar mensualmente incluyendo seguro, combustible y mantenimiento.</p>
+                
+                <h3>2. Tipo de Vehículo</h3>
+                <p>¿Necesitas un coche urbano, familiar o deportivo? Considera tu estilo de vida y necesidades diarias.</p>
+                
+                <h3>3. Nuevo vs Seminuevo</h3>
+                <p>Los seminuevos ofrecen excelente relación calidad-precio, mientras que los nuevos incluyen garantía completa.</p>
+                
+                <h3>4. Prueba de Conducción</h3>
+                <p>Nunca compres sin probar. La comodidad al volante es fundamental.</p>
+                
+                <p><strong>Conclusión:</strong> Tómate tu tiempo, investiga y no dudes en consultar con nuestros asesores.</p>
+            ]]></content:encoded>
+            <wp:post_id>101</wp:post_id>
+            <wp:post_date>2023-11-15 09:00:00</wp:post_date>
+            <wp:post_type>post</wp:post_type>
+            <wp:status>publish</wp:status>
+            <category domain="category" nicename="consejos"><![CDATA[Consejos]]></category>
+        </item>
+        
+        <item>
+            <title>Mantenimiento de verano: Prepara tu coche para el calor</title>
+            <link>https://autoexcelencia.com/blog/mantenimiento-verano/</link>
+            <pubDate>Fri, 01 Jun 2023 10:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?p=102</guid>
+            <description>Consejos para cuidar tu vehículo en verano</description>
+            <content:encoded><![CDATA[
+                <h2>El Verano Pone a Prueba tu Coche</h2>
+                <p>Las altas temperaturas pueden afectar varios sistemas de tu vehículo. Aquí te explicamos cómo prepararlo.</p>
+                
+                <h3>Sistema de Refrigeración</h3>
+                <p>Revisa el nivel de líquido refrigerante y verifica que no haya fugas. Es vital para evitar el sobrecalentamiento.</p>
+                
+                <h3>Aire Acondicionado</h3>
+                <p>Realiza una revisión antes del verano. Un sistema eficiente consume menos combustible.</p>
+                
+                <h3>Neumáticos</h3>
+                <p>El calor aumenta la presión. Verifica la presión en frío cada semana.</p>
+                
+                <h3>Batería</h3>
+                <p>El calor acelera la evaporación del líquido. Revisa los bornes y el nivel de agua.</p>
+                
+                <h3>Aceite del Motor</h3>
+                <p>Considera cambiar a un aceite con mayor viscosidad si vas a conducir en condiciones extremas.</p>
+            ]]></content:encoded>
+            <wp:post_id>102</wp:post_id>
+            <wp:post_date>2023-06-01 10:00:00</wp:post_date>
+            <wp:post_type>post</wp:post_type>
+            <wp:status>publish</wp:status>
+            <category domain="category" nicename="mantenimiento"><![CDATA[Mantenimiento]]></category>
+        </item>
+        
+        <item>
+            <title>Coches eléctricos vs híbridos: ¿Cuál elegir en 2024?</title>
+            <link>https://autoexcelencia.com/blog/electricos-vs-hibridos/</link>
+            <pubDate>Mon, 08 Jan 2024 08:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?p=103</guid>
+            <description>Comparativa entre vehículos eléctricos e híbridos</description>
+            <content:encoded><![CDATA[
+                <h2>La Movilidad del Futuro</h2>
+                <p>La electrificación es una realidad. Pero ¿qué opción se adapta mejor a ti?</p>
+                
+                <h3>Coches Eléctricos</h3>
+                <p><strong>Ventajas:</strong></p>
+                <ul>
+                    <li>Cero emisiones locales</li>
+                    <li>Coste de mantenimiento muy bajo</li>
+                    <li>Silenciosos y suaves</li>
+                    <li>Ayudas gubernamentales</li>
+                </ul>
+                <p><strong>Desventajas:</strong></p>
+                <ul>
+                    <li>Autonomía limitada (200-500 km)</li>
+                    <li>Red de carga en desarrollo</li>
+                    <li>Precio inicial más elevado</li>
+                </ul>
+                
+                <h3>Coches Híbridos</h3>
+                <p><strong>Ventajas:</strong></p>
+                <ul>
+                    <li>Autonomía ilimitada</li>
+                    <li>No dependes de puntos de carga</li>
+                    <li>Menor consumo que gasolina</li>
+                    <li>Precio más accesible</li>
+                </ul>
+                <p><strong>Desventajas:</strong></p>
+                <ul>
+                    <li>Mantenimiento de dos sistemas</li>
+                    <li>Aún producen emisiones</li>
+                    <li>Batería más pequeña</li>
+                </ul>
+                
+                <h3>¿Cuál Elegir?</h3>
+                <p>Eléctrico si haces trayectos urbanos y tienes dónde cargar. Híbrido si necesitas más versatilidad y autonomía.</p>
+            ]]></content:encoded>
+            <wp:post_id>103</wp:post_id>
+            <wp:post_date>2024-01-08 08:00:00</wp:post_date>
+            <wp:post_type>post</wp:post_type>
+            <wp:status>publish</wp:status>
+            <category domain="category" nicename="tecnologia"><![CDATA[Tecnología]]></category>
+        </item>
+        
+        <item>
+            <title>5 errores comunes al comprar un coche usado</title>
+            <link>https://autoexcelencia.com/blog/errores-coche-usado/</link>
+            <pubDate>Thu, 22 Feb 2024 11:00:00 +0000</pubDate>
+            <dc:creator>admin</dc:creator>
+            <guid isPermaLink="false">https://autoexcelencia.com/?p=104</guid>
+            <description>Evita estos errores al comprar seminuevo</description>
+            <content:encoded><![CDATA[
+                <h2>Aprende de los Errores Ajenos</h2>
+                <p>Comprar un coche usado puede ser una excelente decisión, pero hay trampas que debes evitar.</p>
+                
+                <h3>1. No Revisar el Historial</h3>
+                <p>Siempre solicita el informe Carfax o DGT. Conoce los kilómetros reales, accidentes y número de propietarios.</p>
+                
+                <h3>2. Saltarse la Inspección Mecánica</h3>
+                <p>Invierte 100-150€ en que un mecánico revise el vehículo. Puede ahorrarte miles en reparaciones.</p>
+                
+                <h3>3. Dejarse Llevar por la Emoción</h3>
+                <p>No compres el primer coche que veas. Compara precios y condiciones.</p>
+                
+                <h3>4. Ignorar los Gastos Asociados</h3>
+                <p>Calcula ITV, seguro, impuestos y posibles reparaciones inmediatas.</p>
+                
+                <h3>5. No Probar en Diferentes Condiciones</h3>
+                <p>Prueba en ciudad, carretera y diferentes velocidades. Presta atención a ruidos extraños.</p>
+                
+                <p><strong>Consejo Final:</strong> En AutoExcelencia todos nuestros seminuevos están certificados y garantizados.</p>
+            ]]></content:encoded>
+            <wp:post_id>104</wp:post_id>
+            <wp:post_date>2024-02-22 11:00:00</wp:post_date>
+            <wp:post_type>post</wp:post_type>
+            <wp:status>publish</wp:status>
+            <category domain="category" nicename="consejos"><![CDATA[Consejos]]></category>
+        </item>
+        
+    </channel>
+</rss>
