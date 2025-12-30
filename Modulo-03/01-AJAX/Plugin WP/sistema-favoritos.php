@@ -53,7 +53,7 @@ function cargar_scripts_favoritos(){
     wp_enqueue_script('favoritos-js', plugin_dir_url(__FILE__) . 'favoritos.js', array(), '1.0', true);
 
     //Pasar datos a JavaScript
-    wp_localice_script('favortios-js','favoritosData', array('ajax_url' => admin_url('admin-ajax.php'), 'nonce'=> wp_create_nonce ('favoritos_nonce')
+    wp_enqueue_script('favortios-js','favoritosData', array('ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce ('favoritos_nonce')
 ));
 }
 add_action('wp_enqueue_scripts','cargar_scripts_favoritos' );
