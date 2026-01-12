@@ -6,7 +6,7 @@
 # Gestionar una coleccion de materiales
 
 from datetime import datetime, timedelta
-
+from flask import Flask, request, jsonify
 # Definir la clase principal 
 class Material:
     # Constructor
@@ -107,7 +107,7 @@ class Biblioteca:
     def buscar_por_titulo(self, titulo):
         #Comprension de lista con búsqueda case-insensitive
         resultados = [m for m in self.materiales
-                      if titulo.lower() in m.titulo.lower()]
+        if titulo.lower() in m.titulo.lower()]
         return resultados
     
     def listar_disponibles(self):
@@ -142,7 +142,7 @@ class Biblioteca:
             print(f"    Días prestado: {dias}")
             print("-"*50)
 
-    def generar_estadísticas(self):
+    def generar_estadisticas(self):
         #Genera estadísticas de la biblioteca
         total= len(self.materiales)
         disponibles = len([m for m in self.materiales if m.disponible])

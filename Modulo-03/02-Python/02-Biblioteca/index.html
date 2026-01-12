@@ -2,35 +2,39 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Biblioteca</title>
-    <!-- Incluye tus headers si quieres -->
-    <link rel="stylesheet" href="styles.css"> <!-- Tu CSS -->
+    <title>Sistema de Biblioteca</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form, div { margin-bottom: 20px; }
+        input, select, button { margin: 5px; padding: 8px; }
+        #resultados-busqueda, #lista-disponibles { border: 1px solid #ccc; padding: 10px; min-height: 50px; }
+        #campos-libro, #campos-revista { margin-left: 20px; }
+    </style>
 </head>
 <body>
-    <!-- Usa tus headers/footers -->
-    <header>...</header> <!-- Copia de header.html -->
-
     <h1>Sistema de Biblioteca</h1>
 
     <!-- Formulario para agregar material -->
     <h2>Agregar Material</h2>
     <form id="form-agregar">
+        <label>Tipo:</label>
         <select id="tipo">
             <option value="libro">Libro</option>
             <option value="revista">Revista</option>
-        </select>
-        <input type="text" id="titulo" placeholder="Título" required>
-        <input type="number" id="anho" placeholder="Año" required>
-        <!-- Campos específicos -->
+        </select><br>
+        <input type="text" id="titulo" placeholder="Título" required><br>
+        <input type="number" id="anho" placeholder="Año" required><br>
+        <!-- Campos específicos para libro -->
         <div id="campos-libro">
-            <input type="text" id="autor" placeholder="Autor">
-            <input type="text" id="isbn" placeholder="ISBN">
-            <input type="number" id="num_paginas" placeholder="Páginas">
+            <input type="text" id="autor" placeholder="Autor"><br>
+            <input type="text" id="isbn" placeholder="ISBN"><br>
+            <input type="number" id="num_paginas" placeholder="Número de páginas"><br>
         </div>
+        <!-- Campos específicos para revista -->
         <div id="campos-revista" style="display:none;">
-            <input type="text" id="editorial" placeholder="Editorial">
-            <input type="number" id="numero" placeholder="Número">
-            <input type="text" id="mes" placeholder="Mes">
+            <input type="text" id="editorial" placeholder="Editorial"><br>
+            <input type="number" id="numero" placeholder="Número"><br>
+            <input type="text" id="mes" placeholder="Mes"><br>
         </div>
         <button type="submit">Agregar</button>
     </form>
@@ -46,9 +50,6 @@
     <button onclick="listarDisponibles()">Listar Disponibles</button>
     <div id="lista-disponibles"></div>
 
-    <!-- Incluye tus footers -->
-    <footer>...</footer> <!-- Copia de footer.html -->
-
     <script>
         const API_BASE = 'http://127.0.0.1:5000'; // URL del backend
 
@@ -59,7 +60,6 @@
                 tipo: document.getElementById('tipo').value,
                 titulo: document.getElementById('titulo').value,
                 anho: parseInt(document.getElementById('anho').value),
-                // Agrega campos específicos según tipo
             };
             if (data.tipo === 'libro') {
                 data.autor = document.getElementById('autor').value;
@@ -70,28 +70,40 @@
                 data.numero = parseInt(document.getElementById('numero').value);
                 data.mes = document.getElementById('mes').value;
             }
-            const response = await fetch(`${API_BASE}/agregar`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            alert(result.mensaje || result.error);
+            try {
+                const response = await fetch(`${API_BASE}/agregar`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                alert(result.mensaje || result.error);
+            } catch (error) {
+                alert('Error al conectar con el servidor: ' + error.message);
+            }
         });
 
         // Buscar
         async function buscar() {
             const titulo = document.getElementById('buscar-titulo').value;
-            const response = await fetch(`${API_BASE}/buscar?titulo=${titulo}`);
-            const resultados = await response.json();
-            document.getElementById('resultados-busqueda').innerHTML = resultados.map(r => `<p>${r.info}</p>`).join('');
+            try {
+                const response = await fetch(`${API_BASE}/buscar?titulo=${encodeURIComponent(titulo)}`);
+                const resultados = await response.json();
+                document.getElementById('resultados-busqueda').innerHTML = resultados.map(r => `<p>${r.info.replace(/\n/g, '<br>')}</p>`).join('');
+            } catch (error) {
+                document.getElementById('resultados-busqueda').innerHTML = 'Error: ' + error.message;
+            }
         }
 
         // Listar disponibles
         async function listarDisponibles() {
-            const response = await fetch(`${API_BASE}/listar_disponibles`);
-            const disponibles = await response.json();
-            document.getElementById('lista-disponibles').innerHTML = disponibles.map(d => `<p>${d.info}</p>`).join('');
+            try {
+                const response = await fetch(`${API_BASE}/listar_disponibles`);
+                const disponibles = await response.json();
+                document.getElementById('lista-disponibles').innerHTML = disponibles.map(d => `<p>${d.info.replace(/\n/g, '<br>')}</p>`).join('');
+            } catch (error) {
+                document.getElementById('lista-disponibles').innerHTML = 'Error: ' + error.message;
+            }
         }
 
         // Mostrar/ocultar campos según tipo
