@@ -221,3 +221,52 @@ def main():
 if __name__ == "__main__":
     main()
 
+# ===== APP FLASK =====
+app = Flask(__name__)
+
+# Instancia global de la biblioteca (en producción, usa una base de datos)
+biblioteca = Biblioteca("Biblioteca Municipal")
+
+# Agregar algunos materiales de ejemplo (puedes quitar esto después)
+libro1 = Libro("Python para Todos", 2008, "Raúl González", "978-1234567890", 156)
+biblioteca.agregar_material(libro1)
+
+@app.route('/agregar', methods=['POST'])
+def agregar_material():
+    data = request.json
+    tipo = data.get('tipo')  # 'libro' o 'revista'
+    titulo = data.get('titulo')
+    anho = data.get('anho')
+    
+    if tipo == 'libro':
+        autor = data.get('autor')
+        isbn = data.get('isbn')
+        num_paginas = data.get('num_paginas')
+        material = Libro(titulo, anho, autor, isbn, num_paginas)
+    elif tipo == 'revista':
+        editorial = data.get('editorial')
+        numero = data.get('numero')
+        mes = data.get('mes')
+        material = Revista(titulo, anho, editorial, numero, mes)
+    else:
+        return jsonify({'error': 'Tipo de material inválido'}), 400
+    
+    biblioteca.agregar_material(material)
+    return jsonify({'mensaje': f'Material "{titulo}" agregado exitosamente'})
+
+@app.route('/buscar', methods=['GET'])
+def buscar_por_titulo():
+    titulo = request.args.get('titulo', '')
+    resultados = biblioteca.buscar_por_titulo(titulo)
+    # Convertir a JSON (usando mostrar_info para simplicidad)
+    response = [{'info': m.mostrar_info()} for m in resultados]
+    return jsonify(response)
+
+@app.route('/listar_disponibles', methods=['GET'])
+def listar_disponibles():
+    disponibles = [m for m in biblioteca.materiales if m.disponible]
+    response = [{'info': m.mostrar_info()} for m in disponibles]
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True)  # Ejecuta el servidor en http://127.0.0.1:5000

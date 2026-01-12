@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <!-- Incluye tus headers si quieres -->
+    <link rel="stylesheet" href="styles.css"> <!-- Tu CSS -->
+</head>
+<body>
+    <!-- Usa tus headers/footers -->
+    <header>...</header> <!-- Copia de header.html -->
+
+    <h1>Sistema de Biblioteca</h1>
+
+    <!-- Formulario para agregar material -->
+    <h2>Agregar Material</h2>
+    <form id="form-agregar">
+        <select id="tipo">
+            <option value="libro">Libro</option>
+            <option value="revista">Revista</option>
+        </select>
+        <input type="text" id="titulo" placeholder="Título" required>
+        <input type="number" id="anho" placeholder="Año" required>
+        <!-- Campos específicos -->
+        <div id="campos-libro">
+            <input type="text" id="autor" placeholder="Autor">
+            <input type="text" id="isbn" placeholder="ISBN">
+            <input type="number" id="num_paginas" placeholder="Páginas">
+        </div>
+        <div id="campos-revista" style="display:none;">
+            <input type="text" id="editorial" placeholder="Editorial">
+            <input type="number" id="numero" placeholder="Número">
+            <input type="text" id="mes" placeholder="Mes">
+        </div>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <!-- Buscar por título -->
+    <h2>Buscar por Título</h2>
+    <input type="text" id="buscar-titulo" placeholder="Buscar...">
+    <button onclick="buscar()">Buscar</button>
+    <div id="resultados-busqueda"></div>
+
+    <!-- Listar disponibles -->
+    <h2>Materiales Disponibles</h2>
+    <button onclick="listarDisponibles()">Listar Disponibles</button>
+    <div id="lista-disponibles"></div>
+
+    <!-- Incluye tus footers -->
+    <footer>...</footer> <!-- Copia de footer.html -->
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:5000'; // URL del backend
+
+        // Agregar material
+        document.getElementById('form-agregar').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                tipo: document.getElementById('tipo').value,
+                titulo: document.getElementById('titulo').value,
+                anho: parseInt(document.getElementById('anho').value),
+                // Agrega campos específicos según tipo
+            };
+            if (data.tipo === 'libro') {
+                data.autor = document.getElementById('autor').value;
+                data.isbn = document.getElementById('isbn').value;
+                data.num_paginas = parseInt(document.getElementById('num_paginas').value);
+            } else {
+                data.editorial = document.getElementById('editorial').value;
+                data.numero = parseInt(document.getElementById('numero').value);
+                data.mes = document.getElementById('mes').value;
+            }
+            const response = await fetch(`${API_BASE}/agregar`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.mensaje || result.error);
+        });
+
+        // Buscar
+        async function buscar() {
+            const titulo = document.getElementById('buscar-titulo').value;
+            const response = await fetch(`${API_BASE}/buscar?titulo=${titulo}`);
+            const resultados = await response.json();
+            document.getElementById('resultados-busqueda').innerHTML = resultados.map(r => `<p>${r.info}</p>`).join('');
+        }
+
+        // Listar disponibles
+        async function listarDisponibles() {
+            const response = await fetch(`${API_BASE}/listar_disponibles`);
+            const disponibles = await response.json();
+            document.getElementById('lista-disponibles').innerHTML = disponibles.map(d => `<p>${d.info}</p>`).join('');
+        }
+
+        // Mostrar/ocultar campos según tipo
+        document.getElementById('tipo').addEventListener('change', (e) => {
+            document.getElementById('campos-libro').style.display = e.target.value === 'libro' ? 'block' : 'none';
+            document.getElementById('campos-revista').style.display = e.target.value === 'revista' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>
