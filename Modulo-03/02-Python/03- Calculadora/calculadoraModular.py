@@ -47,7 +47,7 @@ def calculadora_modular():
 
         opcion = input("\nSelecciona: ").strip()
 
-        if opcion == 6:
+        if opcion == '6':
             print("Programa finalizado")
             break
         if opcion not in operaciones:
